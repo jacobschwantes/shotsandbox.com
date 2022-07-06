@@ -36,9 +36,9 @@ export default function Header() {
                       src="logo.svg"
                       alt="Workflow"
                     />
-                    <span className="hidden lg:flex w-auto items-center justify-center space-x-2 ">
+                    <span className="hidden lg:flex  justify-center space-x-2 ">
                       <img className=" h-9 " src="logo.svg" alt="Workflow" />
-                      <h1 className="text-2xl font-light">screenshotify</h1>
+                      <h1 className="text-2xl font-medium  text-center">screenshotify</h1>
                     </span>
                   </div>
                 </Link>
