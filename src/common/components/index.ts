@@ -1,3 +1,4 @@
 import Footer from "./Footer";
 import Header from "./Header";
-export { Header, Footer };
+import Announcement from "./Announcement";
+export { Header, Footer, Announcement };
