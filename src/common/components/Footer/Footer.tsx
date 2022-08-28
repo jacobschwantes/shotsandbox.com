@@ -178,7 +178,6 @@ const navigation2 = {
     { name: "Partners", href: "#" },
   ],
   legal: [
-    { name: "Claim", href: "#" },
     { name: "Privacy", href: "#" },
     { name: "Terms", href: "#" },
   ],
