@@ -11,9 +11,9 @@ import {
 } from "@heroicons/react/outline";
 const navigation = [
   { name: "Pricing", href: "/pricing", icon: CreditCardIcon },
-  { name: "Download", href: "/download", icon: DownloadIcon },
-  { name: "Docs", href: "#", icon: BookOpenIcon },
-  { name: "App", href: "#", icon: ChipIcon },
+  { name: "Docs", href: "https://docs.screenshotify.io", icon: BookOpenIcon },
+  { name: "Blog", href: "/blog", icon: BookOpenIcon },
+  { name: "App", href: "https://app.screenshotify.io", icon: ChipIcon },
 ];
 import Link from "next/link";
 
@@ -35,7 +35,7 @@ export default function Header() {
                 <Link href="/">
                   <div className="flex-shrink-0 flex items-center cursor-pointer">
                     <img
-                      className="block lg:hidden h-10 w-auto"
+                      className="block lg:hidden h-7 w-auto"
                       src="logo_short.png"
                       alt="screenshotify"
                     />
@@ -79,7 +79,7 @@ export default function Header() {
 
               <div className="flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white hover:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
