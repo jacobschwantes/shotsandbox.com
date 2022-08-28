@@ -1,15 +1,13 @@
 import { NextPage } from "next";
 import { Header, Footer, Announcement } from "@components/index";
-import { useState } from "react";
 import { Footer2 } from "@components/Footer/Footer";
 const Layout: NextPage = ({ children }) => {
-  const [open, setOpen] = useState(true);
   return (
-    <div className="font-inter h-screen overflow-y-auto dark:bg-black">
-      {/* {open && <Announcement setOpen={setOpen} />} */}
+    <div className="flex flex-col font-inter min-h-screen overflow-y-auto dark:bg-black ">
+      <Header />
     
-        <Header />
-  
+
+      
       {children}
       <Footer2 />
     </div>
