@@ -61,37 +61,33 @@ const Home: NextPage = () => {
 
      </div> */}
       <div className="bg-white dark:bg-black pb-8 sm:pb-12 lg:pb-12 pt-20">
-        <div className="overflow-hidden lg:relative lg:py-60">
+      <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
             <div>
-              <div className="">
+              <div>
+             
+              </div>
+              <div className="mt-20">
                 <div>
                   <a href="#" className="inline-flex space-x-4">
-                    <span className="rounded bg-blue-50 dark:bg-blue-900 dark:bg-opacity-50 px-2.5 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wide uppercase">
+                    <span className="rounded bg-blue-50 px-2.5 py-1 text-sm font-semibold text-blue-500">
                       What's new
                     </span>
-                    <span className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 space-x-1">
+                    <span className="inline-flex items-center text-sm font-medium text-blue-500 space-x-1">
                       <span>Just shipped version 0.1.0</span>
-                      <ChevronRightIcon
-                        className="h-5 w-5"
-                        aria-hidden="true"
-                      />
+                      <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
                     </span>
                   </a>
                 </div>
                 <div className="mt-6 sm:max-w-xl">
-                  <h1 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-                    Create stunning marketing images in seconds
+                  <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl dark:text-zinc-50">
+                    Issue management for growing teams
                   </h1>
                   <p className="mt-6 text-xl text-gray-500 dark:text-zinc-400">
-                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                    qui lorem cupidatat commodo.
+                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
                   </p>
                 </div>
-                <form
-                  action="#"
-                  className="mt-12 sm:max-w-lg sm:w-full sm:flex items-center"
-                >
+                <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
                   <div className="min-w-0 flex-1">
                     <label htmlFor="hero-email" className="sr-only">
                       Email address
@@ -99,51 +95,31 @@ const Home: NextPage = () => {
                     <input
                       id="hero-email"
                       type="email"
-                      className="pr-10 pl-4 py-4 w-full font-medium rounded-lg focus:outline-none bg-black text-gray-400 border-zinc-800 border focus:border-blue-500 "
+                      className="pr-10 pl-4 py-4 w-full font-medium rounded-lg focus:outline-none bg-black text-gray-400 border-zinc-800 border focus:border-blue-500"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
-                      className="block w-full rounded-md border border-transparent px-5 py-4 bg-blue-600 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-10"
+                      className="block w-full rounded-md border border-transparent px-5 py-4 bg-blue-500 text-base font-medium text-white shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-10"
                     >
                       Notify me
                     </button>
                   </div>
                 </form>
                 <div className="mt-6">
-                  <div className="inline-flex items-center divide-x divide-gray-300">
+                  <div className="inline-flex items-center divide-x divide-gray-300 dark:divide-zinc-800">
                     <div className="flex-shrink-0 flex pr-5">
-                      <StarIcon
-                        className="h-5 w-5 text-yellow-400"
-                        aria-hidden="true"
-                      />
-                      <StarIcon
-                        className="h-5 w-5 text-yellow-400"
-                        aria-hidden="true"
-                      />
-                      <StarIcon
-                        className="h-5 w-5 text-yellow-400"
-                        aria-hidden="true"
-                      />
-                      <StarIcon
-                        className="h-5 w-5 text-yellow-400"
-                        aria-hidden="true"
-                      />
-                      <StarIcon
-                        className="h-5 w-5 text-yellow-400"
-                        aria-hidden="true"
-                      />
+                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
                     </div>
-                    <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 dark:text-zinc-300 sm:py-3">
-                      <span className="font-medium text-gray-900 dark:text-zinc-100">
-                        Rated 5 stars
-                      </span>{" "}
-                      by over{" "}
-                      <span className="font-medium text-blue-600 dark:text-blue-500">
-                        500 beta users
-                      </span>
+                    <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3 dark:text-zinc-300">
+                      <span className="font-medium text-gray-900 dark:text-zinc-100">Rated 5 stars</span> by over{' '}
+                      <span className="font-medium text-blue-500">500 beta users</span>
                     </div>
                   </div>
                 </div>
@@ -156,7 +132,7 @@ const Home: NextPage = () => {
               <div className="hidden sm:block">
                 <div className="absolute inset-y-0 left-1/2 w-screen bg-gray-50 dark:bg-zinc-900 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
                 <svg
-                  className="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0 hidden"
+                  className="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0"
                   width={404}
                   height={392}
                   fill="none"
@@ -171,30 +147,21 @@ const Home: NextPage = () => {
                       height={20}
                       patternUnits="userSpaceOnUse"
                     >
-                      <rect
-                        x={0}
-                        y={0}
-                        width={4}
-                        height={4}
-                        className="text-gray-200 dark:text-zinc-800"
-                        fill="currentColor"
-                      />
+                      <rect x={0} y={0} width={4} height={4} className="text-gray-200 dark:text-zinc-800" fill="currentColor" />
                     </pattern>
                   </defs>
-                  <rect
-                    width={404}
-                    height={392}
-                    fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
-                  />
+                  <rect width={404} height={392} fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
                 </svg>
               </div>
               <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
                 <img
-                  className="absolute w-full z-10 rounded-3xl border border-zinc-900 shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
+                  className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none  z-10"
                   src="editor_preview.png"
                   alt=""
                 />
-                <div className="absolute z-0 bg-gradient-to-r from-blue-400 to-blue-800 h-full w-full inset-0 ml-12 blur-3xl opacity-50 scale-95"></div>
+                {/* <div className="absolute z-0 bg-gradient-to-r from-blue-400 to-blue-800 h-full w-full inset-0 ml-12 blur-3xl opacity-50">
+
+                </div> */}
               </div>
             </div>
           </div>
@@ -209,7 +176,7 @@ const Home: NextPage = () => {
             <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-zinc-50 sm:text-4xl">
               No server? No problem.
             </p>
-            <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500 dark:text-zinc-400">
+            <p className="mt-5 max-w-pblue mx-auto text-xl text-gray-500 dark:text-zinc-400">
               Phasellus lorem quam molestie id quisque diam aenean nulla in.
               Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
               condimentum id viverra nulla.
@@ -232,7 +199,7 @@ const Home: NextPage = () => {
           <p className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-zinc-50">
             Everything you need to deploy your app
           </p>
-          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500 dark:text-zinc-400">
+          <p className="mx-auto mt-5 max-w-pblue text-xl text-gray-500 dark:text-zinc-400">
             Phasellus lorem quam molestie id quisque diam aenean nulla in.
             Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
             condimentum id viverra nulla.
