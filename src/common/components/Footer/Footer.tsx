@@ -165,26 +165,24 @@ const navigation2 = {
     { name: "Insights", href: "#" },
   ],
   support: [
-    { name: "Pricing", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-    { name: "API Status", href: "#" },
+    { name: "Contact", href: "mailto:support@screenshotify.io" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Documentation", href: "https://docs.screenshotify.io" },
+    { name: "API Status", href: "https://status.screenshotify.io" },
   ],
-  company: [
-    { name: "About", href: "#" },
+  guides: [
     { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Partners", href: "#" },
+    { name: "Releases", href: "#" },
+    { name: "Roadmap", href: "#" },
   ],
   legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
   ],
   social: [
     {
       name: "Twitter",
-      href: "#",
+      href: "https://twitter.com/screenshotifyio",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -193,7 +191,7 @@ const navigation2 = {
     },
     {
       name: "GitHub",
-      href: "#",
+      href: "https://github.com/screenshotify",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -218,8 +216,7 @@ export function Footer2() {
           <div className="space-y-8 xl:col-span-1">
             <img className="h-6" src="logo.png" alt="Company name" />
             <p className="text-gray-500 dark:text-zinc-300 text-base">
-              Making the world a better place through constructing elegant
-              hierarchies.
+             Creating stunning marketing images for your brands and projects.
             </p>
             <div className="flex space-x-6">
               {navigation2.social.map((item) => (
@@ -274,10 +271,10 @@ export function Footer2() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-base font-medium text-gray-900 dark:text-zinc-50">
-                  Company
+                    Guides
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {navigation2.company.map((item) => (
+                  {navigation2.guides.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}

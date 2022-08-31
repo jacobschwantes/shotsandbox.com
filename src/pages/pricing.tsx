@@ -42,7 +42,7 @@ const tiers = [
 ];
 
 export default function Example() {
-  const [selected, setSelected] = useState("yearly");
+  const [selected, setSelected] = useState("yearly billing");
   return (
     <div className="bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto py-36 px-4 sm:px-6 lg:px-8 space-y-12">
