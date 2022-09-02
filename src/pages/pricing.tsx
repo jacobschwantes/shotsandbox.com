@@ -8,10 +8,10 @@ const tiers = [
     href: "#",
     priceMonthly: 0,
     priceYearly: 0,
-    description: "All the basics for starting a new business",
+    description: "Get started for free. Limited API and editor access to try out.",
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc.",
-      "Orci neque eget pellentesque.",
+      "100 request quota per month",
+      "Access to limited editor features.",
     ],
   },
   {
@@ -19,11 +19,11 @@ const tiers = [
     href: "#",
     priceMonthly: 8,
     priceYearly: 50,
-    description: "All the basics for starting a new business",
+    description: "All the basics for new developers and small business owners.",
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc. ",
-      "Orci neque eget pellentesque.",
-      "Donec mauris sit in eu tincidunt etiam.",
+      "1000 quota per month.",
+      "Full access to the editor.",
+      "Custom presets and templates.",
     ],
   },
   {
@@ -31,12 +31,12 @@ const tiers = [
     href: "#",
     priceMonthly: 15,
     priceYearly: 80,
-    description: "All the basics for starting a new business",
+    description: "Extended features for experienced developers and business owners.",
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc. ",
-      "Orci neque eget pellentesque.",
-      "Donec mauris sit in eu tincidunt etiam.",
-      "Faucibus volutpat magna.",
+      "Everything in Pro",
+      "Priority support.",
+      "First access to new features.",
+      "Server rendered mockup API access.",
     ],
   },
 ];
@@ -51,7 +51,7 @@ export default function Example() {
             Pricing Plans
           </h1>
           <p className="mt-5 text-xl text-gray-500 sm:text-center dark:text-zinc-400">
-            Start building for free, then add a site plan to go live. Account
+            Start creating for free, then upgrade to unlock full potential. Account
             plans unlock additional features.
           </p>
         </div>
