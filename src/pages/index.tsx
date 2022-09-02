@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ChartBarIcon, LightningBoltIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
 import { InboxIcon, SparklesIcon } from "@heroicons/react/outline";
 import {
@@ -18,40 +18,40 @@ import Announcement from "@components/Announcement";
 
 const features = [
   {
-    name: "Push to Deploy",
+    name: "Cloud Storage",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "Screenshots are stored in the cloud securly with Google Cloud Storage for 30 days.",
     icon: CloudUploadIcon,
   },
   {
     name: "SSL Certificates",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "API, Cloud Storage, and the App, all secure using SSL.",
     icon: LockClosedIcon,
   },
   {
-    name: "Simple Queues",
+    name: "High Availability",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "We leverage horizontal scaling with Google Cloud Platform to provide high relability even during peak hours.",
     icon: RefreshIcon,
   },
   {
-    name: "Advanced Security",
+    name: "API Keys",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "API keys offer fine grained control. All keys can be locked, rate limited, and revoked from the dashboard.",
     icon: ShieldCheckIcon,
   },
   {
-    name: "Powerful API",
+    name: "Lightning Fast API",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: CogIcon,
+      "We leverage caching to provide sub-second response times to API requests.",
+    icon: LightningBoltIcon,
   },
   {
-    name: "Database Backups",
+    name: "Usage Analytics",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: ServerIcon,
+      "View usage stats and charts and keep track of quota from the dashboard.",
+    icon: ChartBarIcon,
   },
 ];
 const Home: NextPage = () => {
@@ -61,14 +61,12 @@ const Home: NextPage = () => {
 
      </div> */}
       <div className="bg-white dark:bg-black pb-8 sm:pb-12 lg:pb-12 pt-20">
-      <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
+        <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
             <div>
-              <div>
-             
-              </div>
-              <div className="mt-20">
-                <div>
+              <div></div>
+              <div className="mt-20 space-y-5">
+                {/* <div>
                   <a href="#" className="inline-flex space-x-4">
                     <span className="rounded bg-blue-50 px-2.5 py-1 text-sm font-semibold text-blue-500">
                       What's new
@@ -78,16 +76,18 @@ const Home: NextPage = () => {
                       <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
                     </span>
                   </a>
-                </div>
+                </div> */}
                 <div className="mt-6 sm:max-w-xl">
                   <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl dark:text-zinc-50">
-                    Issue management for growing teams
+                    Stunning marketing images in{" "}
+                    <span className="text-blue-500">seconds</span>
                   </h1>
                   <p className="mt-6 text-xl text-gray-500 dark:text-zinc-400">
-                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                    Creating stunning promotional and marketing graphics for
+                    social media posts.
                   </p>
                 </div>
-                <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
+                {/* <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
                   <div className="min-w-0 flex-1">
                     <label htmlFor="hero-email" className="sr-only">
                       Email address
@@ -107,8 +107,8 @@ const Home: NextPage = () => {
                       Notify me
                     </button>
                   </div>
-                </form>
-                <div className="mt-6">
+                </form> */}
+                {/* <div className="mt-6">
                   <div className="inline-flex items-center divide-x divide-gray-300 dark:divide-zinc-800">
                     <div className="flex-shrink-0 flex pr-5">
                       <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
@@ -121,6 +121,24 @@ const Home: NextPage = () => {
                       <span className="font-medium text-gray-900 dark:text-zinc-100">Rated 5 stars</span> by over{' '}
                       <span className="font-medium text-blue-500">500 beta users</span>
                     </div>
+                  </div>
+                </div> */}
+                <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                  <div className="inline-flex rounded-md shadow">
+                    <a
+                      href="mailto:contact@screenshotify.io"
+                      className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                    >
+                      Request Access
+                    </a>
+                  </div>
+                  <div className="ml-3 inline-flex rounded-md shadow">
+                    <a
+                      href="#"
+                      className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
+                    >
+                      Learn more
+                    </a>
                   </div>
                 </div>
               </div>
@@ -147,10 +165,21 @@ const Home: NextPage = () => {
                       height={20}
                       patternUnits="userSpaceOnUse"
                     >
-                      <rect x={0} y={0} width={4} height={4} className="text-gray-200 dark:text-zinc-800" fill="currentColor" />
+                      <rect
+                        x={0}
+                        y={0}
+                        width={4}
+                        height={4}
+                        className="text-gray-200 dark:text-zinc-800"
+                        fill="currentColor"
+                      />
                     </pattern>
                   </defs>
-                  <rect width={404} height={392} fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
+                  <rect
+                    width={404}
+                    height={392}
+                    fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
+                  />
                 </svg>
               </div>
               <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
@@ -171,15 +200,13 @@ const Home: NextPage = () => {
         <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
           <div>
             <h2 className="text-base font-semibold tracking-wider text-blue-600 dark:text-blue-500 uppercase">
-              Serverless
+              Dashboard
             </h2>
             <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-zinc-50 sm:text-4xl">
-              No server? No problem.
+              One place to manage it all.
             </p>
             <p className="mt-5 max-w-pblue mx-auto text-xl text-gray-500 dark:text-zinc-400">
-              Phasellus lorem quam molestie id quisque diam aenean nulla in.
-              Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
-              condimentum id viverra nulla.
+             View your usage stats, generate access keys, view history logs, and access the editor - all from one powerful dashboard.
             </p>
           </div>
           <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80 ">
@@ -237,9 +264,7 @@ const Home: NextPage = () => {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-bold text-gray-900  dark:text-white sm:text-4xl">
             <span className="block">Ready to dive in?</span>
-            <span className="block text-blue-600">
-              Start using for free.
-            </span>
+            <span className="block text-blue-600">Start using for free.</span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
