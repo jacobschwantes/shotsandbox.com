@@ -1,7 +1,7 @@
 
 import { XIcon } from '@heroicons/react/outline'
 
-export default function Announcement(props) {
+export default function Announcement() {
   return (
     <div className="relative bg-blue-600">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
@@ -19,7 +19,7 @@ export default function Announcement(props) {
         </div>
         <div className="absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start">
           <button
-          onClick={() => props.setOpen(false)}
+          // onClick={() => props.setOpen(false)}
             type="button"
             className="flex p-2 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
           >

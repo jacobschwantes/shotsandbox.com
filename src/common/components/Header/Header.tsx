@@ -16,10 +16,7 @@ const navigation = [
   { name: "App", href: "https://app.screenshotify.io", icon: ChipIcon },
 ];
 import Link from "next/link";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import clsx from "clsx";
 
 export default function Header() {
   return (
@@ -98,13 +95,7 @@ export default function Header() {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   {item.name}
                 </Disclosure.Button>
