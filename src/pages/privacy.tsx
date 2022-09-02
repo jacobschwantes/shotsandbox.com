@@ -8,7 +8,7 @@ const Privacy = () => (
       data-id="1fa34cc3-1c4f-4c9a-aac1-5beb22eaef48"
       data-type="iframe"
     ></div>
-    <Script type="text/javascript">{`(function(d, s, id) {
+    <Script id="privacy" type="text/javascript">{`(function(d, s, id) {
   var js, tjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
