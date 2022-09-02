@@ -235,10 +235,10 @@ export function Footer2() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-base font-medium text-gray-900 dark:text-zinc-50">
-                  Solutions
+                  Guides
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {navigation2.solutions.map((item) => (
+                  {navigation2.guides.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -269,7 +269,7 @@ export function Footer2() {
               </div>
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
+              {/* <div>
                 <h3 className="text-base font-medium text-gray-900 dark:text-zinc-50">
                     Guides
                 </h3>
@@ -285,7 +285,7 @@ export function Footer2() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
               <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900 dark:text-zinc-50">
                   Legal
