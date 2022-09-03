@@ -221,15 +221,13 @@ const Home: NextPage = () => {
       <div className="relative bg-white dark:bg-black py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-base font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-500">
-            Deploy faster
+           Powerful tools
           </h2>
           <p className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-zinc-50">
-            Everything you need to deploy your app
+            Everything you need to showcase your app
           </p>
           <p className="mx-auto mt-5 max-w-pblue text-xl text-gray-500 dark:text-zinc-400">
-            Phasellus lorem quam molestie id quisque diam aenean nulla in.
-            Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend
-            condimentum id viverra nulla.
+            Powerful features allow you to push your brand forward.
           </p>
           <div className="mt-12">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
