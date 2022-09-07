@@ -3,7 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import { ChartBarIcon, LightningBoltIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  ChartBarIcon,
+  LightningBoltIcon,
+  MenuIcon,
+  XIcon,
+} from "@heroicons/react/outline";
 import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
 import { InboxIcon, SparklesIcon } from "@heroicons/react/outline";
 import {
@@ -25,8 +30,7 @@ const features = [
   },
   {
     name: "SSL Certificates",
-    description:
-      "API, Cloud Storage, and the App, all secure using SSL.",
+    description: "API, Cloud Storage, and the App, all secure using SSL.",
     icon: LockClosedIcon,
   },
   {
@@ -60,11 +64,10 @@ const Home: NextPage = () => {
       {/* <div className="grid-effect min-h-[300px] px-4 md:p-5 h-full border border-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
 
      </div> */}
-      <div className="bg-white dark:bg-black pb-8 sm:pb-12 lg:pb-12 pt-20">
+      <div className="bg-white dark:bg-black pb-8 sm:pb-12 lg:pb-12 sm:pt-20 pt-10">
         <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
             <div>
-              <div></div>
               <div className="mt-20 space-y-5">
                 {/* <div>
                   <a href="#" className="inline-flex space-x-4">
@@ -77,7 +80,7 @@ const Home: NextPage = () => {
                     </span>
                   </a>
                 </div> */}
-                <div className="mt-6 sm:max-w-xl">
+                <div className="mt-6 sm:max-w-xl sm:text-left text-center">
                   <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl dark:text-zinc-50">
                     Stunning marketing images in{" "}
                     <span className="text-blue-500">seconds</span>
@@ -123,7 +126,7 @@ const Home: NextPage = () => {
                     </div>
                   </div>
                 </div> */}
-                <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 justify-center sm:justify-start">
                   <div className="inline-flex rounded-md shadow">
                     <a
                       href="mailto:contact@screenshotify.io"
@@ -182,7 +185,7 @@ const Home: NextPage = () => {
                   />
                 </svg>
               </div>
-              <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
+              <div className="hidden sm:block relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
                 <img
                   className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none  z-10"
                   src="editor_preview.png"
@@ -191,6 +194,13 @@ const Home: NextPage = () => {
                 {/* <div className="absolute z-0 bg-gradient-to-r from-blue-400 to-blue-800 h-full w-full inset-0 ml-12 blur-3xl opacity-50">
 
                 </div> */}
+              </div>
+              <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80 px-5 sm:hidden relative ">
+                <img
+                  className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5"
+                  src="editor_preview.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -206,7 +216,8 @@ const Home: NextPage = () => {
               One place to manage it all.
             </p>
             <p className="mt-5 max-w-pblue mx-auto text-xl text-gray-500 dark:text-zinc-400">
-             View your usage stats, generate access keys, view history logs, and access the editor - all from one powerful dashboard.
+              View your usage stats, generate access keys, view history logs,
+              and access the editor - all from one powerful dashboard.
             </p>
           </div>
           <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80 ">
@@ -221,7 +232,7 @@ const Home: NextPage = () => {
       <div className="relative bg-white dark:bg-black py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-base font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-500">
-           Powerful tools
+            Powerful tools
           </h2>
           <p className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-zinc-50">
             Everything you need to showcase your app
@@ -260,11 +271,11 @@ const Home: NextPage = () => {
 
       <div className="bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="text-3xl font-bold text-gray-900  dark:text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold text-gray-900  dark:text-white sm:text-4xl text-center sm:text-left">
             <span className="block">Ready to dive in?</span>
             <span className="block text-blue-600">Start using for free.</span>
           </h2>
-          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 justify-center sm:justify-start">
             <div className="inline-flex rounded-md shadow">
               <a
                 href="https://app.screenshotify.io"
