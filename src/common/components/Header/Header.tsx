@@ -46,11 +46,11 @@ export default function Header() {
                       {/* <h1 className="text-2xl font-medium  text-center">screenshotify</h1> */}
                     </span>
                     <img
-                      className="block lg:hidden h-7 w-auto"
+                      className="block dark:hidden lg:hidden h-7 w-auto"
                       src="logo_short_light.png"
                       alt="screenshotify"
                     />
-                    <span className="hidden lg:flex  justify-center space-x-2 dark:hidden ">
+                    <span className="hidden lg:flex  justify-center space-x-2 lg:dark:hidden ">
                       <img
                         className=" h-7 "
                         src="logo_light.png"
