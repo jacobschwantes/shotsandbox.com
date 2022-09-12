@@ -25,7 +25,7 @@ const features = [
   {
     name: "Cloud Storage",
     description:
-      "Screenshots are stored in the cloud securly with Google Cloud Storage for 30 days.",
+      "Screenshots are stored in the cloud securely using Google Cloud Storage for 30 days.",
     icon: CloudUploadIcon,
   },
   {
@@ -36,7 +36,7 @@ const features = [
   {
     name: "High Availability",
     description:
-      "We leverage horizontal scaling with Google Cloud Platform to provide high relability even during peak hours.",
+      "We leverage horizontal scaling with Google Cloud Platform to provide high reliability even during peak hours.",
     icon: RefreshIcon,
   },
   {
@@ -86,8 +86,7 @@ const Home: NextPage = () => {
                     <span className="text-blue-500">seconds</span>
                   </h1>
                   <p className="mt-6 text-xl text-gray-500 dark:text-zinc-400">
-                    Creating stunning promotional and marketing graphics for
-                    social media posts.
+                    Craft beautiful mockups and previews using a powerful all-in-one editor.
                   </p>
                 </div>
                 {/* <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
@@ -132,7 +131,7 @@ const Home: NextPage = () => {
                       href="mailto:contact@screenshotify.io"
                       className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                     >
-                      Request Access
+                      Request access
                     </a>
                   </div>
                   <div className="ml-3 inline-flex rounded-md shadow">
