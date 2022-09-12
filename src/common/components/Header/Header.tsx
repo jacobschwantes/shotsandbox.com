@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white dark:bg-black fixed w-full z-50 border-b border-zinc-800 dark:bg-opacity-50 backdrop-blur-md"
+      className="bg-white dark:bg-black fixed w-full z-50 border-b dark:border-zinc-800 border-zinc-100 dark:bg-opacity-50 backdrop-blur-md"
     >
       {({ open }) => (
         <>
@@ -33,14 +33,27 @@ export default function Header() {
                 <Link href="/">
                   <div className="flex-shrink-0 flex items-center cursor-pointer p-2">
                     <img
-                      className="block lg:hidden h-7 w-auto"
+                      className="hidden dark:block lg:hidden h-7 w-auto"
                       src="logo_short.png"
                       alt="screenshotify"
                     />
-                    <span className="hidden lg:flex  justify-center space-x-2 ">
+                    <span className="hidden dark:lg:flex  justify-center space-x-2 ">
                       <img
                         className=" h-7 "
                         src="logo.png"
+                        alt="screenshotify"
+                      />
+                      {/* <h1 className="text-2xl font-medium  text-center">screenshotify</h1> */}
+                    </span>
+                    <img
+                      className="block lg:hidden h-7 w-auto"
+                      src="logo_short_light.png"
+                      alt="screenshotify"
+                    />
+                    <span className="hidden lg:flex  justify-center space-x-2 dark:hidden ">
+                      <img
+                        className=" h-7 "
+                        src="logo_light.png"
                         alt="screenshotify"
                       />
                       {/* <h1 className="text-2xl font-medium  text-center">screenshotify</h1> */}
@@ -52,7 +65,7 @@ export default function Header() {
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
-                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-white dark:text-zinc-300 font-medium transition-all duration-300 ">
+                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-white dark:text-zinc-300 text-zinc-900 hover:text-blue-600 font-medium transition-all duration-300 ">
                         {/* <item.icon className="h-6 mr-2 " /> */}
                         {item.name}
                       </a>
@@ -63,7 +76,7 @@ export default function Header() {
               <div className="hidden sm:flex space-x-5 items-center">
                 <a
                   href="https://app.screenshotify.io"
-                  className="flex  rounded-md border border-transparent items-center justify-center text-sm font-medium text-white hover:text-blue-500 transition-colors duration-300"
+                  className="flex  rounded-md border border-transparent items-center justify-center text-sm font-medium dark:text-white text-black hover:text-blue-500 transition-colors duration-300"
                 >
                   Log in
                 </a>
@@ -77,7 +90,7 @@ export default function Header() {
 
               <div className="flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white hover:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -96,7 +109,7 @@ export default function Header() {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className="flex px-3 py-3 text-base font-medium text-white hover:bg-gray-700 hover:text-white border-b last:border-hidden border-zinc-700"
+                  className="flex px-3 py-3 text-base font-medium dark:text-white hover:bg-gray-700 text-black  border-b last:border-hidden dark:border-zinc-700"
                 >
                   <item.icon className="h-6 mr-2 text-blue-600" />
                   {item.name}

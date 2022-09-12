@@ -60,7 +60,7 @@ const features = [
 ];
 const Home: NextPage = () => {
   return (
-    <div className=" space-y-20 bg-black">
+    <div className=" space-y-20 dark:bg-black">
       {/* <div className="grid-effect min-h-[300px] px-4 md:p-5 h-full border border-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
 
      </div> */}
@@ -247,7 +247,7 @@ const Home: NextPage = () => {
                   <div className="flow-root rounded-lg bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-70 px-6 pb-8">
                     <div className="-mt-6">
                       <div>
-                        <span className="inline-flex items-center justify-center rounded-md bg-black dark:bg-blue-900 dark:bg-opacity-75 p-3 shadow-lg">
+                        <span className="inline-flex items-center justify-center rounded-md bg-blue-600 dark:bg-blue-900 dark:bg-opacity-75 p-3 shadow-lg">
                           <feature.icon
                             className="h-6 w-6 text-white"
                             aria-hidden="true"

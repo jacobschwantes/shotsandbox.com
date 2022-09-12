@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 const Layout: NextPage<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col font-inter min-h-screen overflow-y-auto dark:bg-black ">
+    <div className="flex flex-col font-inter min-h-screen overflow-y-auto dark:bg-black bg-white ">
       <Head>
         <title>screenshotify</title>
       </Head>

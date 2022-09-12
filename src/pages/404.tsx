@@ -8,7 +8,7 @@ export default function Example() {
     <div className="flex-1 flex flex-col h-full">
       <main className="flex-grow mx-auto max-w-7xl w-full flex flex-col px-4 sm:px-6 lg:px-8 mt-16">
         <div className="flex-shrink-0 my-auto py-16 sm:py-32">
-          <p className="text-sm font-semibold  uppercase tracking-wide dark:text-blue-500">
+          <p className="text-sm font-semibold  uppercase tracking-wide text-blue-500">
             404 error
           </p>
           <h1 className="mt-2 text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl dark:text-zinc-50">
@@ -19,7 +19,7 @@ export default function Example() {
           </p>
           <div className="mt-6">
             <Link href="/">
-              <a className="text-base font-medium text-black-600 hover:text-black-500">
+              <a className="text-base font-medium text-blue-600">
                 Go back home<span aria-hidden="true"> &rarr;</span>
               </a>
             </Link>

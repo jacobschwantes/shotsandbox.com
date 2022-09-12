@@ -214,7 +214,8 @@ export function Footer2() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img className="h-6" src="logo.png" alt="Company name" />
+            <img className="h-6 hidden dark:block" src="logo.png" alt="Company name" />
+            <img className="h-6 dark:hidden" src="logo_light.png" alt="Company name" />
             <p className="text-gray-500 dark:text-zinc-300 text-base">
              Creating stunning marketing images for your brands and projects.
             </p>
