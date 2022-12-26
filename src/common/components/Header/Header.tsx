@@ -11,28 +11,28 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 const navigation = [
-  { name: "Pricing", href: "/pricing", icon: CreditCardIcon },
-  { name: "Docs", href: "https://docs.screenshotify.io", icon: BookOpenIcon },
+  { name: "Features", href: "/#features", icon: PencilIcon },
+  { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
+  { name: "Examples", href: "/#examples", icon: PencilIcon },
   { name: "Blog", href: "/blog", icon: PencilIcon },
-  { name: "App", href: "https://app.screenshotify.io", icon: ChipIcon },
+  { name: "Changelog", href: "/changelog", icon: PencilIcon },
 ];
 import Link from "next/link";
-import clsx from "clsx";
 
 export default function Header() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white dark:bg-black fixed w-full z-50 border-b dark:border-zinc-800 border-zinc-100 dark:bg-opacity-50 backdrop-blur-md"
+      className="bg-white fixed w-full z-50 border-b border-zinc-100 bg-opacity-60 backdrop-blur-md "
     >
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2  sm:px-6 lg:px-12 ">
+          <div className="max-w-[1440px] mx-auto px-2  sm:px-6 lg:px-12 ">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center justify-between ">
                 <Link href="/">
                   <div className="flex-shrink-0 flex items-center cursor-pointer p-2">
-                    <img
+                    {/* <img
                       className="hidden dark:block lg:hidden h-7 w-auto"
                       src="logo_short.png"
                       alt="screenshotify"
@@ -43,16 +43,16 @@ export default function Header() {
                         src="logo.png"
                         alt="screenshotify"
                       />
-                      {/* <h1 className="text-2xl font-medium  text-center">screenshotify</h1> */}
-                    </span>
+                     
+                    </span> */}
                     <img
-                      className="block dark:hidden lg:hidden h-7 w-auto"
+                      className="block lg:hidden h-6 w-auto"
                       src="logo_short_light.png"
                       alt="screenshotify"
                     />
-                    <span className="hidden lg:flex  justify-center space-x-2 lg:dark:hidden ">
+                    <span className="hidden lg:flex  justify-center space-x-2  ">
                       <img
-                        className=" h-7 "
+                        className=" h-6 "
                         src="logo_light.png"
                         alt="screenshotify"
                       />
@@ -65,7 +65,7 @@ export default function Header() {
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
-                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-white dark:text-zinc-300 text-zinc-900 hover:text-blue-600 font-medium transition-all duration-300 ">
+                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-blue-600 dark:text-zinc-700 text-zinc-900 hover:text-blue-600 font-medium transition-all duration-300 ">
                         {/* <item.icon className="h-6 mr-2 " /> */}
                         {item.name}
                       </a>
@@ -76,13 +76,13 @@ export default function Header() {
               <div className="hidden sm:flex space-x-5 items-center">
                 <a
                   href="https://app.screenshotify.io"
-                  className="flex  rounded-md border border-transparent items-center justify-center text-sm font-medium dark:text-white text-black hover:text-blue-500 transition-colors duration-300"
+                  className="flex  rounded-md border border-transparent items-center justify-center  font-medium text-blue-600  hover:text-blue-500 transition-all duration-300"
                 >
                   Log in
                 </a>
                 <a
                   href="https://app.screenshotify.io"
-                  className="block  rounded-md border border-transparent px-3 py-1.5  bg-blue-600 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+                  className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300"
                 >
                   Sign up
                 </a>
@@ -90,7 +90,7 @@ export default function Header() {
 
               <div className="flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -132,9 +132,6 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
             </div>
-
-
-            
           </Disclosure.Panel>
         </>
       )}
