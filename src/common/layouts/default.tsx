@@ -1,19 +1,20 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { Header } from "@components/index";
-import { Footer2 } from "@components/Footer/Footer";
+import { CTA, Header } from "@components/index";
+import { Footer } from "@components/index";
 interface LayoutProps {
   children: React.ReactNode;
 }
 const Layout: NextPage<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col font-inter min-h-screen overflow-y-auto dark:bg-black bg-white ">
+    <div className="flex flex-col font-inter min-h-screen bg-white">
       <Head>
         <title>screenshotify</title>
       </Head>
       <Header />
       {children}
-      <Footer2 />
+      <CTA />
+      <Footer />
     </div>
   );
 };
