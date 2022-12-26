@@ -1,8 +1,8 @@
 import Script from "next/script";
 const Privacy = () => (
-  <div className="w-full h-full bg-black">
+  <div className="w-full h-full min-h-screen">
     <div
-      className="bg-black max-w-6xl mx-auto pt-16"
+      className="max-w-6xl mx-auto pt-16"
       //@ts-ignore
       name="termly-embed"
       data-id="1fa34cc3-1c4f-4c9a-aac1-5beb22eaef48"

@@ -1,8 +1,8 @@
 import Script from "next/script";
 const Terms = () => (
-  <div className="w-full h-full bg-black">
+  <div className="w-full h-full min-h-screen ">
     <div
-      className="bg-black max-w-6xl mx-auto pt-16"
+      className="max-w-6xl mx-auto pt-16"
       //@ts-ignore
       name="termly-embed"
       data-id="d84722d7-35f6-41f0-a416-bdb04899789c"
