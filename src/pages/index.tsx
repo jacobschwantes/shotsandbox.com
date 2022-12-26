@@ -1,301 +1,607 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import {
-  ChartBarIcon,
-  LightningBoltIcon,
-  MenuIcon,
-  XIcon,
-} from "@heroicons/react/outline";
-import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
-import { InboxIcon, SparklesIcon } from "@heroicons/react/outline";
-import {
-  CloudUploadIcon,
-  CogIcon,
-  LockClosedIcon,
-  RefreshIcon,
-  ServerIcon,
-  ShieldCheckIcon,
-} from "@heroicons/react/outline";
-import Announcement from "@components/Announcement";
+import { Carousel, Tabs } from "@components/index";
+import { CheckIcon } from "@heroicons/react/outline";
+import { CubeIcon, LightningBoltIcon } from "@heroicons/react/solid";
+import { motion } from "framer-motion";
+import { Ref, useEffect, useRef, useState } from "react";
+import { slideUp, staggerContainer } from "@utils/variants";
 
-const features = [
-  {
-    name: "Cloud Storage",
-    description:
-      "Screenshots are stored in the cloud securely using Google Cloud Storage for 30 days.",
-    icon: CloudUploadIcon,
-  },
-  {
-    name: "SSL Certificates",
-    description: "API, Cloud Storage, and the App, all secure using SSL.",
-    icon: LockClosedIcon,
-  },
-  {
-    name: "High Availability",
-    description:
-      "We leverage horizontal scaling with Google Cloud Platform to provide high reliability even during peak hours.",
-    icon: RefreshIcon,
-  },
-  {
-    name: "API Keys",
-    description:
-      "API keys offer fine grained control. All keys can be locked, rate limited, and revoked from the dashboard.",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Lightning Fast API",
-    description:
-      "We leverage caching to provide sub-second response times to API requests.",
-    icon: LightningBoltIcon,
-  },
-  {
-    name: "Usage Analytics",
-    description:
-      "View usage stats and charts and keep track of quota from the dashboard.",
-    icon: ChartBarIcon,
-  },
+const media = [
+  { src: "preview_1.png", id: 1 },
+  { src: "preview_2.png", id: 2 },
+  { src: "preview_3.png", id: 3 },
+  { src: "preview_4.png", id: 4 },
+  { src: "preview_5.png", id: 5 },
+  { src: "preview_1.png", id: 6 },
+  { src: "preview_2.png", id: 7 },
+  { src: "preview_3.png", id: 8 },
+  { src: "preview_4.png", id: 9 },
+  { src: "preview_5.png", id: 10 },
+  { src: "preview_1.png", id: 11 },
+  { src: "preview_2.png", id: 12 },
+  { src: "preview_3.png", id: 13 },
+  { src: "preview_4.png", id: 14 },
+  { src: "preview_5.png", id: 15 },
 ];
-const Home: NextPage = () => {
-  return (
-    <div className=" space-y-20 dark:bg-black">
-      {/* <div className="grid-effect min-h-[300px] px-4 md:p-5 h-full border border-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+const shuffle = (array: []) => {
+  let currentIndex = array.length,
+    randomIndex;
 
-     </div> */}
-      <div className="bg-white dark:bg-black pb-8 sm:pb-12 lg:pb-12 sm:pt-20 pt-10">
-        <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
-          <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
-            <div>
-              <div className="mt-20 space-y-5">
-                {/* <div>
-                  <a href="#" className="inline-flex space-x-4">
-                    <span className="rounded bg-blue-50 px-2.5 py-1 text-sm font-semibold text-blue-500">
-                      What's new
-                    </span>
-                    <span className="inline-flex items-center text-sm font-medium text-blue-500 space-x-1">
-                      <span>Just shipped version 0.1.0</span>
-                      <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                  </a>
-                </div> */}
-                <div className="mt-6 sm:max-w-xl sm:text-left text-center">
-                  <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl dark:text-zinc-50">
-                    Stunning marketing images in{" "}
-                    <span className="text-blue-500">seconds</span>
-                  </h1>
-                  <p className="mt-6 text-xl text-gray-500 dark:text-zinc-400">
-                    Craft beautiful mockups and previews using a powerful all-in-one editor.
-                  </p>
-                </div>
-                {/* <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
-                  <div className="min-w-0 flex-1">
-                    <label htmlFor="hero-email" className="sr-only">
-                      Email address
-                    </label>
-                    <input
-                      id="hero-email"
-                      type="email"
-                      className="pr-10 pl-4 py-4 w-full font-medium rounded-lg focus:outline-none bg-black text-gray-400 border-zinc-800 border focus:border-blue-500"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div className="mt-4 sm:mt-0 sm:ml-3">
-                    <button
-                      type="submit"
-                      className="block w-full rounded-md border border-transparent px-5 py-4 bg-blue-500 text-base font-medium text-white shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-10"
-                    >
-                      Notify me
-                    </button>
-                  </div>
-                </form> */}
-                {/* <div className="mt-6">
-                  <div className="inline-flex items-center divide-x divide-gray-300 dark:divide-zinc-800">
-                    <div className="flex-shrink-0 flex pr-5">
-                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                      <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
-                    </div>
-                    <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3 dark:text-zinc-300">
-                      <span className="font-medium text-gray-900 dark:text-zinc-100">Rated 5 stars</span> by over{' '}
-                      <span className="font-medium text-blue-500">500 beta users</span>
-                    </div>
-                  </div>
-                </div> */}
-                <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 justify-center sm:justify-start">
-                  <div className="inline-flex rounded-md shadow">
-                    <a
-                      href="mailto:contact@screenshotify.io"
-                      className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                    >
-                      Request access
-                    </a>
-                  </div>
-                  <div className="ml-3 inline-flex rounded-md shadow">
-                    <a
-                      href="#"
-                      className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
-                    >
-                      Learn more
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-          <div className="sm:mx-auto sm:max-w-3xl sm:px-6">
-            <div className="py-12 sm:relative sm:mt-12 sm:py-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-              <div className="hidden sm:block">
-                <div className="absolute inset-y-0 left-1/2 w-screen bg-gray-50 dark:bg-zinc-900 rounded-l-3xl lg:left-80 lg:right-0 lg:w-full" />
-                <svg
-                  className="absolute top-8 right-1/2 -mr-3 lg:m-0 lg:left-0"
-                  width={404}
-                  height={392}
-                  fill="none"
-                  viewBox="0 0 404 392"
-                >
-                  <defs>
-                    <pattern
-                      id="837c3e70-6c3a-44e6-8854-cc48c737b659"
-                      x={0}
-                      y={0}
-                      width={20}
-                      height={20}
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <rect
-                        x={0}
-                        y={0}
-                        width={4}
-                        height={4}
-                        className="text-gray-200 dark:text-zinc-800"
-                        fill="currentColor"
-                      />
-                    </pattern>
-                  </defs>
-                  <rect
-                    width={404}
-                    height={392}
-                    fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
-                  />
-                </svg>
-              </div>
-              <div className="hidden sm:block relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
-                <img
-                  className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none  z-10"
-                  src="editor_preview.png"
-                  alt=""
-                />
-                {/* <div className="absolute z-0 bg-gradient-to-r from-blue-400 to-blue-800 h-full w-full inset-0 ml-12 blur-3xl opacity-50">
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
 
-                </div> */}
-              </div>
-              <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80 px-5 sm:hidden relative ">
-                <img
-                  className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5"
-                  src="editor_preview.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50 pt-16 overflow-hidden sm:pt-24 lg:pt-32">
-        <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
-          <div>
-            <h2 className="text-base font-semibold tracking-wider text-blue-600 dark:text-blue-500 uppercase">
-              Dashboard
-            </h2>
-            <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-zinc-50 sm:text-4xl">
-              One place to manage it all.
-            </p>
-            <p className="mt-5 max-w-pblue mx-auto text-xl text-gray-500 dark:text-zinc-400">
-              View your usage stats, generate access keys, view history logs,
-              and access the editor - all from one powerful dashboard.
-            </p>
-          </div>
-          <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80 ">
-            <img
-              className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5"
-              src="dashboard_preview.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-      <div className="relative bg-white dark:bg-black py-16 sm:py-24 lg:py-32">
-        <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-base font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-500">
-            Powerful tools
-          </h2>
-          <p className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-zinc-50">
-            Everything you need to showcase your app
-          </p>
-          <p className="mx-auto mt-5 max-w-pblue text-xl text-gray-500 dark:text-zinc-400">
-            Powerful features allow you to push your brand forward.
-          </p>
-          <div className="mt-12">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
-                <div key={feature.name} className="pt-6">
-                  <div className="flow-root rounded-lg bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-70 px-6 pb-8">
-                    <div className="-mt-6">
-                      <div>
-                        <span className="inline-flex items-center justify-center rounded-md bg-blue-600 dark:bg-blue-900 dark:bg-opacity-75 p-3 shadow-lg">
-                          <feature.icon
-                            className="h-6 w-6 text-white"
-                            aria-hidden="true"
-                          />
-                        </span>
-                      </div>
-                      <h3 className="mt-8 text-lg font-medium tracking-tight text-gray-900 dark:text-zinc-200">
-                        {feature.name}
-                      </h3>
-                      <p className="mt-5 text-base text-gray-500 dark:text-zinc-400">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+  return array;
+};
+const scrollTo = (element: string, duration: number) => {
+  if (element) {
+    const startingY = window.pageYOffset;
+    const selector = document.querySelector(element);
+    const elementY =
+      selector && startingY + selector.getBoundingClientRect().top;
 
-      <div className="bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="text-3xl font-bold text-gray-900  dark:text-white sm:text-4xl text-center sm:text-left">
-            <span className="block">Ready to dive in?</span>
-            <span className="block text-blue-600">Start using for free.</span>
-          </h2>
-          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0 justify-center sm:justify-start">
-            <div className="inline-flex rounded-md shadow">
-              <a
-                href="https://app.screenshotify.io"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-              >
-                Get started
-              </a>
-            </div>
-            <div className="ml-3 inline-flex rounded-md shadow">
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
-              >
-                Learn more
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    // If element is close to page's bottom then window will scroll only to some position above the element.
+    const targetY = elementY &&
+      document.body.scrollHeight - elementY < window.innerHeight
+        ? document.body.scrollHeight - window.innerHeight
+        : elementY;
+    const diff = targetY && targetY - startingY;
+    // Easing function: easeInOutCubic
+    // From: https://gist.github.com/gre/1650294
+    const easing = function (t: number) {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+    let start: number;
+
+    if (!diff) return;
+
+    // Bootstrap our animation - it will get called right before next frame shall be rendered.
+    window.requestAnimationFrame(function step(timestamp) {
+      if (!start) start = timestamp;
+      // Elapsed miliseconds since start of scrolling.
+      const time = timestamp - start;
+      // Get percent of completion in range [0, 1].
+      let percent = Math.min(time / duration, 1);
+      // Apply the easing.
+      // It can cause bad-looking slow frames in browser performance tool, so be careful.
+      percent = easing(percent);
+
+      window.scrollTo(0, startingY + diff * percent);
+
+      // Proceed with animation as long as we wanted it to.
+      if (time < duration) {
+        window.requestAnimationFrame(step);
+      }
+    });
+  }
 };
 
-export default Home;
+const draw = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: () => {
+    const delay = 0.55;
+    return {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
+        opacity: { delay, duration: 0.01 },
+      },
+    };
+  },
+};
+
+const tiers = [
+  {
+    name: "Free",
+    href: "#",
+    priceMonthly: 0,
+    priceYearly: 0,
+    description:
+      "Just enough to get you started with limited editor and api access.",
+    includedFeatures: [
+      "100 request quota per month",
+      "Access to limited editor features",
+      "Basic support",
+    ],
+  },
+  {
+    name: "Pro",
+    href: "#",
+    priceMonthly: 10,
+    priceYearly: 60,
+    description: "All the basics for new developers and small business owners.",
+    includedFeatures: [
+      "1000 quota per month",
+      "Full access to the editor",
+      "Custom presets and templates",
+      "No watermarks",
+      "Full resolution",
+    ],
+  },
+  {
+    name: "Pro+",
+    href: "#",
+    priceMonthly: 20,
+    priceYearly: 120,
+    description:
+      "Extended features for experienced developers and business owners.",
+    includedFeatures: [
+      "Everything in Pro",
+      "Priority support",
+      "First access to new features",
+    ],
+  },
+];
+
+export default function Test() {
+  const [selected, setSelected] = useState("yearly billing");
+  const [images, setImages] = useState(media);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (typeof window !== "undefined") {
+        if (!document.hidden) {
+          const newMedia = Array.from(images);
+          console.log(images);
+          console.log(newMedia);
+          for (let i = 0; i < 3; i++) {
+            const index = Math.floor(Math.random() * images.length);
+            const newItem = {
+              src: media[Math.floor(Math.random() * media.length)].src,
+              id: Math.floor(Math.random() * 10000),
+              delay: Math.random() * 2,
+            };
+            newMedia[index] = newItem;
+          }
+          setImages(newMedia);
+        }
+      }
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+
+  return (
+    <div className="flex flex-col bg-white font-inter">
+      <motion.div
+        style={{
+          background: `radial-gradient(106.9% 91.8% at 100% 100%, #2563eb 0%, var(--token-8c47652b-dea5-4767-a9f2-5d952dcce49a, rgb(255, 255, 255))  100%)`,
+        }}
+        className="h-screen  overflow-hidden relative  "
+      >
+    
+          <div className="xl:top-1/2 absolute xl:-translate-y-1/2 xl:left-1/3 xl:-translate-x-1/3  z-30 h-1/2  w-full xl:w-auto xl:h-auto flex justify-center items-center xl:block  ">
+            <motion.div
+              initial={"hidden"}
+              viewport={{ once: true }}
+              whileInView={"visible"}
+              //@ts-ignore
+              variants={staggerContainer}
+              className=" space-y-6 max-w-3xl xl:-mt-36 flex flex-col text-center items-center xl:text-left xl:items-start "
+            >
+              <motion.h1
+                variants={slideUp}
+                className="text-blue-600 font-semibold text-lg"
+              >
+                BUILD YOUR BRAND
+              </motion.h1>
+              <motion.h1
+                variants={slideUp}
+                className="text-black text-7xl font-bold"
+              >
+                Craft{" "}
+                <motion.span
+                  initial={{ color: "#00000" }}
+                  transition={{ delay: 0.29 }}
+                  animate={{ color: "#2563eb" }}
+                  className="relative whitespace-nowrap bg-clip-text "
+                >
+                  <motion.svg
+                    initial="hidden"
+                    animate="visible"
+                    className="absolute top-3/4 left-0 h-[0.58em] w-full"
+                    viewBox="0 0 113 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <motion.path
+                      variants={draw}
+                      fill="transparent"
+                      stroke-width="2"
+                      stroke="rgba(29, 78, 216, 0.3)
+                    "
+                      stroke-linecap="round"
+                      d="M1 6L62 1L41 6H112"
+                      pathLength="1"
+                      stroke-dashoffset="0px"
+                      stroke-dasharray="1px 1px"
+                      data-projection-id="24"
+                    ></motion.path>
+                  </motion.svg>
+                  stunning
+                </motion.span>{" "}
+                mockups
+              </motion.h1>
+              <motion.h2
+                variants={slideUp}
+                className="text-zinc-700 text-2xl max-w-lg"
+              >
+                Quickly generate previews of your project or app using our
+                powerful editor.
+              </motion.h2>
+              <motion.div variants={slideUp} className="flex  space-x-3">
+                <button
+                  onClick={() => scrollTo("#pricing", 2000)}
+                  type="button"
+                  className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Get started
+                </button>
+                <button
+                  onClick={() => scrollTo("#examples", 1000)}
+                  type="button"
+                  className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                >
+                  Examples
+                </button>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <div  className="overflow-hidden xl:overflow-visible h-1/2 top-1/2 xl:top-auto xl:h-screen  bg-transparent absolute xl:right-[-15%] right-0 left-0 xl:left-auto ">
+            <motion.div
+              className="h-full hidden xl:block"
+              style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
+            >
+              <Carousel cols={3} itemSize={500} media={images} />
+            </motion.div>
+            <motion.div  style={{WebkitMask: `linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%)`}} className="h-full xl:hidden">
+              <Carousel limit={10} cols={2} media={images} itemSize={350} />
+            </motion.div>
+          </div>
+        
+      </motion.div>
+
+      <motion.div
+        //@ts-ignore
+        variants={staggerContainer}
+        className="bg-white space-y-24 py-24 "
+      >
+        <motion.div
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+          className="max-w-xl mx-auto text-center space-y-3"
+        >
+          <h1 className="text-blue-600 font-semibold text-lg">
+            COMPLETE TOOLKIT
+          </h1>
+          <h1 className="text-black text-5xl font-bold">
+            Building blocks for your next website.
+          </h1>
+        </motion.div>
+
+        <motion.ul
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          //@ts-ignore
+          variants={staggerContainer}
+          className="flex  justify-between max-w-6xl mx-auto space-x-5"
+        >
+          {[1, 2, 3].map((item) => (
+            <motion.li
+              key={item}
+              variants={slideUp}
+              className="shadow-xl shadow-zinc-100 rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square space-y-4"
+            >
+              <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
+                <CubeIcon className="h-8 text-blue-600" />
+              </div>
+
+              <h1 className="font-medium text-black text-2xl">
+                25+ Prebuilt Pages
+              </h1>
+              <p className="text-zinc-500  text-lg ">
+                Choose from 20+ pages from various categories. Customize your
+                page, hit publish and instantly see your site live.
+              </p>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+      <div className="bg-blue-50">
+        <motion.div
+          id="examples"
+          //@ts-ignore
+          variants={staggerContainer}
+          className=" flex space-x-24  justify-between  max-w-6xl  relative h-min w-full mx-auto py-24"
+        >
+          <motion.div
+            initial={"hidden"}
+            viewport={{ once: true }}
+            whileInView={"visible"}
+            //@ts-ignore
+            variants={staggerContainer}
+            className=" space-y-6  sticky top-32 h-min  max-w-md  "
+          >
+            <motion.h1
+              variants={slideUp}
+              className="text-blue-600 font-semibold text-lg"
+            >
+              EXAMPLES
+            </motion.h1>
+            <motion.h1
+              variants={slideUp}
+              className="text-black text-5xl font-bold"
+            >
+              Complete pages for your project.
+            </motion.h1>
+            <motion.h2
+              variants={slideUp}
+              className="text-zinc-700 text-xl max-w-lg"
+            >
+              Create beautiful pages within minutes directly in Framer. Easily
+              customize images, content, and style to make it your own.
+            </motion.h2>
+          </motion.div>
+
+          <motion.ul
+            initial={"hidden"}
+            viewport={{ once: true }}
+            whileInView={"visible"}
+            //@ts-ignore
+            variants={staggerContainer}
+            className="flex flex-col space-y-5 min-h-min relative"
+          >
+            {[1, 2, 3].map((item) => (
+              <motion.li
+                key={item}
+                variants={slideUp}
+                style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
+                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square space-y-4 bg-white"
+              >
+                <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
+                  <CubeIcon className="h-8 text-blue-600" />
+                </div>
+
+                <h1 className="font-medium text-black text-2xl">
+                  25+ Prebuilt Pages
+                </h1>
+                <p className="text-zinc-500  text-lg ">
+                  Choose from 20+ pages from various categories. Customize your
+                  page, hit publish and instantly see your site live.
+                </p>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
+      </div>
+
+      <motion.div
+        id="features"
+        //@ts-ignore
+        variants={staggerContainer}
+        className="bg-white space-y-24 py-24 "
+      >
+        <motion.div
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+          className="max-w-2xl mx-auto text-center space-y-3"
+        >
+          <h1 className="text-blue-600 font-semibold text-lg">FEATURES</h1>
+          <h1 className="text-black text-5xl font-bold">
+            Essential features for your next website.
+          </h1>
+        </motion.div>
+
+        <motion.ul
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          //@ts-ignore
+          variants={staggerContainer}
+          className="grid grid-cols-3  max-w-6xl mx-auto gap-5"
+        >
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <motion.li
+              key={item}
+              style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
+              variants={slideUp}
+              className=" rounded-3xl flex flex-col items-center justify-center p-14 border border-zinc-100  space-y-4 bg-white"
+            >
+              <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
+                <CubeIcon className="h-10 text-blue-600" />
+              </div>
+
+              <h1 className="font-medium text-black text-2xl">
+                Fully responsive
+              </h1>
+              <p className="text-zinc-500  text-lg text-center ">
+                Layouts that adapt to any device.
+              </p>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+      <motion.div
+        id="resources"
+        //@ts-ignore
+        variants={staggerContainer}
+        className="bg-blue-50 space-y-24 py-24 "
+      >
+        <motion.div
+          //@ts-ignore
+          variants={staggerContainer}
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          className="max-w-xl mx-auto text-center space-y-6"
+        >
+          <motion.h1
+            variants={slideUp}
+            className="text-blue-600 font-semibold text-lg"
+          >
+            RESOURCES
+          </motion.h1>
+          <motion.h2
+            variants={slideUp}
+            className="text-black text-6xl font-bold"
+          >
+            Insights and news from the team.
+          </motion.h2>
+          <motion.p variants={slideUp} className="text-zinc-600 text-xl ">
+            Discover articles and guides from Ultra team and improve
+            functionality of your websites.
+          </motion.p>
+          <motion.button
+            variants={slideUp}
+            onClick={() => scrollTo("#pricing", 2000)}
+            type="button"
+            className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            See all posts
+          </motion.button>
+        </motion.div>
+
+        <motion.ul
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          //@ts-ignore
+          variants={staggerContainer}
+          className="grid grid-cols-2  max-w-6xl mx-auto gap-5"
+        >
+          {[1, 2].map((item) => (
+            <motion.li
+              key={item}
+              style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
+              variants={slideUp}
+              className=" rounded-3xl flex flex-col items-start justify-end p-10 border border-zinc-100  space-y-4 bg-gradient-to-br from-white to-white via-blue-300 h-96"
+            >
+              <h1 className="text-zinc-100 text-lg uppercase font-bold tracking-wide">
+                Inspiration
+              </h1>
+              <p className="text-white text-2xl font-bold ">
+                10 ways to improve your launch campaign
+              </p>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+      <motion.div
+        id="pricing"
+        //@ts-ignore
+        variants={staggerContainer}
+        className="bg-white space-y-10 py-24 "
+      >
+        <motion.div
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+          className="max-w-2xl mx-auto text-center space-y-3"
+        >
+          <h1 className="text-blue-600 font-semibold text-lg">PRICING</h1>
+          <h1 className="text-black text-5xl font-bold">
+            Ready to get started?
+          </h1>
+        </motion.div>
+
+        <motion.div
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+          className="max-w-sm mx-auto w-full pt-3"
+        >
+          <Tabs
+            selected={selected}
+            setSelected={setSelected}
+            tabs={["yearly billing", "monthly billing"]}
+          />
+        </motion.div>
+
+        <motion.ul
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          //@ts-ignore
+          variants={staggerContainer}
+          className=" max-w-6xl mx-auto grid grid-cols-3 gap-5 items-start"
+        >
+          {tiers.map((tier) => (
+            <motion.li
+              key={tier.name}
+              style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
+              variants={slideUp}
+              className=" flex flex-col rounded-3xl  group relative even:z-10 "
+            >
+              <div className="  rounded-3xl p-12  group-odd:bg-white group-even:bg-blue-600   relative overflow-hidden flex-1 border border-zinc-100  ">
+              
+                <div className="relative mb-5">
+                  <h1 className="font-medium text-black text-2xl group-even:text-white flex  items-center justify-between">
+                    {tier.name}
+                    {selected === "yearly billing" && tier.name !== "Free" && (
+                      <span className="text-xs bg-blue-50 group-even:bg-white text-blue-600 px-2 rounded-full py-1 flex items-center">
+                        <LightningBoltIcon className="h-3 mr-1" />
+                        SAVE ${tier.priceMonthly * 12 - tier.priceYearly}
+                      </span>
+                    )}
+                  </h1>
+                  <p className=" text-zinc-600 mt-1 group-even:text-zinc-50  ">
+                    {tier.description}
+                  </p>
+                </div>
+                <div className="flex items-center space-x-2 relative mb-5">
+                  <p className="font-bold text-5xl group-even:text-white">
+                    $
+                    {selected === "monthly billing"
+                      ? tier.priceMonthly
+                      : Math.floor(tier.priceYearly / 12)}{" "}
+                  </p>
+                  <span className="text-sm  text-zinc-800 group-even:text-zinc-50">
+                    <p>per month</p>
+                    <p>
+                      billed{" "}
+                      {selected === "monthly billing" ? "monthly" : "yearly"}
+                    </p>
+                  </span>
+                </div>
+                <a
+                  href="https://app.screenshotify.io"
+                  className="mb-5 relative inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-white group-odd:bg-blue-600  px-4 py-2 font-medium group-odd:text-white text-blue-600 shadow-sm hover:bg-zinc-200 group-odd:hover:bg-blue-700  focus:outline-2 focus:outline outline-offset-2 focus:outline-blue-500 group-even:outline-white transition-colors duration-300"
+                >
+                  Get started
+                </a>
+
+                <ul className="space-y-5 relative">
+                  {tier.includedFeatures.map((feature) => (
+                    <li key={feature} className="flex items-center text-zinc-600 group-even:text-zinc-50">
+                      <span className="mr-1">
+                        <CheckIcon className="h-5 text-blue-600 group-even:text-white" />
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+    </div>
+  );
+}
