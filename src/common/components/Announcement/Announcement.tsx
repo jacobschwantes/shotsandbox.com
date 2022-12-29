@@ -1,5 +1,5 @@
 
-import { XIcon } from '@heroicons/react/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function Announcement() {
   return (
@@ -24,7 +24,7 @@ export default function Announcement() {
             className="flex p-2 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
           >
             <span className="sr-only">Dismiss</span>
-            <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
         </div>
       </div>
