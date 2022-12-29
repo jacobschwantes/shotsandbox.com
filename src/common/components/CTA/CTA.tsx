@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@utils/variants";
-import { CheckCircleIcon } from "@heroicons/react/solid";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import Ticker from "@components/Ticker/Ticker";
 const CTA = () => (
   <div id="features" className="bg-blue-600 space-y-14 py-24 ">
@@ -20,7 +20,7 @@ const CTA = () => (
       </motion.h1>
       <motion.h1
         variants={slideUp}
-        className="text-white text-5xl font-bold leading-tight"
+        className="text-white text-4xl xl:text-5xl font-bold leading-tight"
       >
         Start crafting stunning mockups in seconds.
       </motion.h1>

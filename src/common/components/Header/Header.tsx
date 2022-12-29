@@ -3,27 +3,33 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   BookOpenIcon,
-  ChipIcon,
+  CpuChipIcon,
   CreditCardIcon,
-  DownloadIcon,
-  MenuIcon,
+  ArrowDownTrayIcon,
+  Bars3Icon,
   PencilIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+  XMarkIcon,
+  RectangleGroupIcon,
+  LightBulbIcon,
+  DocumentIcon,
+  QueueListIcon,
+} from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
 const navigation = [
-  { name: "Features", href: "/#features", icon: PencilIcon },
+  { name: "Features", href: "/#features", icon: RectangleGroupIcon },
   { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
-  { name: "Examples", href: "/#examples", icon: PencilIcon },
-  { name: "Blog", href: "/blog", icon: PencilIcon },
-  { name: "Changelog", href: "/changelog", icon: PencilIcon },
+  { name: "Examples", href: "/#examples", icon: LightBulbIcon },
+  { name: "Blog", href: "/blog", icon: QueueListIcon },
+  { name: "Changelog", href: "/changelog", icon: DocumentIcon },
 ];
+import { staggerContainer, slideUpSlow, staggerContainerSlow } from "@utils/variants";
 import Link from "next/link";
 
 export default function Header() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white fixed w-full z-50 border-b border-zinc-100 bg-opacity-60 backdrop-blur-md "
+      className="bg-white fixed w-full z-50 border-b border-zinc-100  "
     >
       {({ open }) => (
         <>
@@ -46,7 +52,7 @@ export default function Header() {
                      
                     </span> */}
                     <img
-                      className="block lg:hidden h-6 w-auto"
+                      className="block lg:hidden h-9 w-auto"
                       src="logo_short_light.png"
                       alt="screenshotify"
                     />
@@ -90,48 +96,56 @@ export default function Header() {
 
               <div className="flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block h-7" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block h-7" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pb-3 space-y-1">
+          <Disclosure.Panel className="sm:hidden border-t border-zinc-100">
+            <motion.div
+              initial={"hidden"}
+              viewport={{ once: true }}
+              whileInView={"visible"}
+              //@ts-ignore
+              variants={staggerContainerSlow}
+              className="px-2  space-y-2 py-3"
+            >
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className="flex px-3 py-3 text-base font-medium dark:text-white hover:bg-gray-700 text-black  border-b last:border-hidden dark:border-zinc-700"
-                >
-                  <item.icon className="h-6 mr-2 text-blue-600" />
-                  {item.name}
-                </Disclosure.Button>
+                <motion.div variants={slideUpSlow} key={item.name}>
+                  <Disclosure.Button
+                    as="a"
+                    href={item.href}
+                    className="flex px-3 py-3 text-xl font-medium hover:bg-gray-700 text-black items-center"
+                  >
+                    <item.icon className="h-8 mr-3 text-blue-600" />
+                    {item.name}
+                  </Disclosure.Button>
+                </motion.div>
               ))}
-              <div className="flex w-full space-x-3 pt-2">
+              <motion.div variants={slideUpSlow} className="w-full flex pt-3 space-x-5 px-2">
                 <Disclosure.Button
                   as="a"
                   href="https://app.screenshotify.io"
-                  className="block text-center w-full  rounded-md border border-transparent px-3 py-1.5  bg-white text-sm font-medium text-black shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+                  className=" w-full inline-flex items-center justify-center rounded-lg border  bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 >
                   Log in
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="https://app.screenshotify.io"
-                  className="block text-center w-full  rounded-md border border-transparent px-3 py-1.5  bg-blue-600 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+                  className="w-full inline-flex items-center justify-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   Sign up
                 </Disclosure.Button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </Disclosure.Panel>
         </>
       )}

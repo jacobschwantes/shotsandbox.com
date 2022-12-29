@@ -1,8 +1,8 @@
 import { Carousel, Tabs } from "@components/index";
-import { CheckIcon } from "@heroicons/react/outline";
-import { CubeIcon, LightningBoltIcon } from "@heroicons/react/solid";
+import { CheckIcon } from "@heroicons/react/24/solid";
+import { CubeIcon, BoltIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { Ref, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { slideUp, staggerContainer } from "@utils/variants";
 
 const media = [
@@ -22,25 +22,7 @@ const media = [
   { src: "preview_4.png", id: 14 },
   { src: "preview_5.png", id: 15 },
 ];
-const shuffle = (array: []) => {
-  let currentIndex = array.length,
-    randomIndex;
 
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-};
 const scrollTo = (element: string, duration: number) => {
   if (element) {
     const startingY = window.pageYOffset;
@@ -49,8 +31,8 @@ const scrollTo = (element: string, duration: number) => {
       selector && startingY + selector.getBoundingClientRect().top;
 
     // If element is close to page's bottom then window will scroll only to some position above the element.
-    const targetY = elementY &&
-      document.body.scrollHeight - elementY < window.innerHeight
+    const targetY =
+      elementY && document.body.scrollHeight - elementY < window.innerHeight
         ? document.body.scrollHeight - window.innerHeight
         : elementY;
     const diff = targetY && targetY - startingY;
@@ -169,7 +151,6 @@ export default function Test() {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div className="flex flex-col bg-white font-inter">
       <motion.div
@@ -178,103 +159,106 @@ export default function Test() {
         }}
         className="h-screen  overflow-hidden relative  "
       >
-    
-          <div className="xl:top-1/2 absolute xl:-translate-y-1/2 xl:left-1/3 xl:-translate-x-1/3  z-30 h-1/2  w-full xl:w-auto xl:h-auto flex justify-center items-center xl:block  ">
-            <motion.div
-              initial={"hidden"}
-              viewport={{ once: true }}
-              whileInView={"visible"}
-              //@ts-ignore
-              variants={staggerContainer}
-              className=" space-y-6 max-w-3xl xl:-mt-36 flex flex-col text-center items-center xl:text-left xl:items-start "
+        <div className="xl:top-1/2 absolute xl:-translate-y-1/2 xl:left-1/3 xl:-translate-x-1/3 z-30 h-1/2  w-full xl:w-auto xl:h-auto flex justify-center items-center xl:block  ">
+          <motion.div
+            initial={"hidden"}
+            viewport={{ once: true }}
+            whileInView={"visible"}
+            //@ts-ignore
+            variants={staggerContainer}
+            className="space-y-6 max-w-3xl xl:-mt-36 mt-24 px-5 xl:px-0 flex flex-col text-center items-center xl:text-left xl:items-start"
+          >
+            <motion.h1
+              variants={slideUp}
+              className="text-blue-600 font-semibold text-lg"
             >
-              <motion.h1
-                variants={slideUp}
-                className="text-blue-600 font-semibold text-lg"
+              BUILD YOUR BRAND
+            </motion.h1>
+            <motion.h1
+              variants={slideUp}
+              className="text-black xl:text-7xl text-5xl font-bold"
+            >
+              Craft{" "}
+              <motion.span
+                initial={{ color: "#00000" }}
+                transition={{ delay: 0.29 }}
+                animate={{ color: "#2563eb" }}
+                className="relative whitespace-nowrap bg-clip-text "
               >
-                BUILD YOUR BRAND
-              </motion.h1>
-              <motion.h1
-                variants={slideUp}
-                className="text-black text-7xl font-bold"
-              >
-                Craft{" "}
-                <motion.span
-                  initial={{ color: "#00000" }}
-                  transition={{ delay: 0.29 }}
-                  animate={{ color: "#2563eb" }}
-                  className="relative whitespace-nowrap bg-clip-text "
+                <motion.svg
+                  initial="hidden"
+                  animate="visible"
+                  className="absolute top-3/4 left-0 h-[0.58em] w-full"
+                  viewBox="0 0 113 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <motion.svg
-                    initial="hidden"
-                    animate="visible"
-                    className="absolute top-3/4 left-0 h-[0.58em] w-full"
-                    viewBox="0 0 113 7"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <motion.path
-                      variants={draw}
-                      fill="transparent"
-                      stroke-width="2"
-                      stroke="rgba(29, 78, 216, 0.3)
+                  <motion.path
+                    variants={draw}
+                    fill="transparent"
+                    stroke-width="2"
+                    stroke="rgba(29, 78, 216, 0.3)
                     "
-                      stroke-linecap="round"
-                      d="M1 6L62 1L41 6H112"
-                      pathLength="1"
-                      stroke-dashoffset="0px"
-                      stroke-dasharray="1px 1px"
-                      data-projection-id="24"
-                    ></motion.path>
-                  </motion.svg>
-                  stunning
-                </motion.span>{" "}
-                mockups
-              </motion.h1>
-              <motion.h2
-                variants={slideUp}
-                className="text-zinc-700 text-2xl max-w-lg"
-              >
-                Quickly generate previews of your project or app using our
-                powerful editor.
-              </motion.h2>
-              <motion.div variants={slideUp} className="flex  space-x-3">
-                <button
-                  onClick={() => scrollTo("#pricing", 2000)}
-                  type="button"
-                  className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                  Get started
-                </button>
-                <button
-                  onClick={() => scrollTo("#examples", 1000)}
-                  type="button"
-                  className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
-                >
-                  Examples
-                </button>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          <div  className="overflow-hidden xl:overflow-visible h-1/2 top-1/2 xl:top-auto xl:h-screen  bg-transparent absolute xl:right-[-15%] right-0 left-0 xl:left-auto ">
-            <motion.div
-              className="h-full hidden xl:block"
-              style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
+                    stroke-linecap="round"
+                    d="M1 6L62 1L41 6H112"
+                    pathLength="1"
+                    stroke-dashoffset="0px"
+                    stroke-dasharray="1px 1px"
+                    data-projection-id="24"
+                  ></motion.path>
+                </motion.svg>
+                stunning
+              </motion.span>{" "}
+              mockups
+            </motion.h1>
+            <motion.h2
+              variants={slideUp}
+              className="text-zinc-700 xl:text-2xl text-xl max-w-lg"
             >
-              <Carousel cols={3} itemSize={500} media={images} />
+              Quickly generate previews of your project or app using our
+              powerful editor.
+            </motion.h2>
+            <motion.div variants={slideUp} className="flex  space-x-3">
+              <button
+                onClick={() => scrollTo("#pricing", 2000)}
+                type="button"
+                className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Get started
+              </button>
+              <button
+                onClick={() => scrollTo("#examples", 1000)}
+                type="button"
+                className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+              >
+                Examples
+              </button>
             </motion.div>
-            <motion.div  style={{WebkitMask: `linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%)`}} className="h-full xl:hidden">
-              <Carousel limit={10} cols={2} media={images} itemSize={350} />
-            </motion.div>
-          </div>
-        
+          </motion.div>
+        </div>
+
+        <div className="overflow-hidden xl:overflow-visible h-1/2 top-1/2 xl:top-auto xl:h-screen  bg-transparent absolute xl:right-[-15%] right-0 left-0 xl:left-auto ">
+          <motion.div
+            className="h-full hidden xl:block"
+            style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
+          >
+            <Carousel cols={3} itemSize={500} media={images} />
+          </motion.div>
+          <motion.div
+            style={{
+              WebkitMask: `linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%)`,
+            }}
+            className="h-full xl:hidden"
+          >
+            <Carousel limit={10} cols={2} media={images} itemSize={350} />
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
         //@ts-ignore
         variants={staggerContainer}
-        className="bg-white space-y-24 py-24 "
+        className="bg-white space-y-24 py-24"
       >
         <motion.div
           initial={"hidden"}
@@ -286,7 +270,7 @@ export default function Test() {
           <h1 className="text-blue-600 font-semibold text-lg">
             COMPLETE TOOLKIT
           </h1>
-          <h1 className="text-black text-5xl font-bold">
+          <h1 className="text-black xl:text-5xl text-4xl font-bold">
             Building blocks for your next website.
           </h1>
         </motion.div>
@@ -297,7 +281,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="flex  justify-between max-w-6xl mx-auto space-x-5"
+          className="max-w-6xl mx-auto grid xl:grid-cols-3 grid-cols-1 gap-5 px-5 xl:px-0"
         >
           {[1, 2, 3].map((item) => (
             <motion.li
@@ -308,11 +292,10 @@ export default function Test() {
               <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
                 <CubeIcon className="h-8 text-blue-600" />
               </div>
-
               <h1 className="font-medium text-black text-2xl">
                 25+ Prebuilt Pages
               </h1>
-              <p className="text-zinc-500  text-lg ">
+              <p className="text-zinc-500 text-lg">
                 Choose from 20+ pages from various categories. Customize your
                 page, hit publish and instantly see your site live.
               </p>
@@ -325,7 +308,7 @@ export default function Test() {
           id="examples"
           //@ts-ignore
           variants={staggerContainer}
-          className=" flex space-x-24  justify-between  max-w-6xl  relative h-min w-full mx-auto py-24"
+          className=" flex xl:space-x-24 xl:flex-row flex-col  justify-between items-center  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 xl:space-y-0 px-5 xl:px-0"
         >
           <motion.div
             initial={"hidden"}
@@ -333,7 +316,7 @@ export default function Test() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className=" space-y-6  sticky top-32 h-min  max-w-md  "
+            className=" space-y-6  xl:sticky  top-32 h-min  max-w-md text-center xl:text-left "
           >
             <motion.h1
               variants={slideUp}
@@ -343,7 +326,7 @@ export default function Test() {
             </motion.h1>
             <motion.h1
               variants={slideUp}
-              className="text-black text-5xl font-bold"
+              className="text-black xl:text-5xl text-4xl font-bold"
             >
               Complete pages for your project.
             </motion.h1>
@@ -402,7 +385,7 @@ export default function Test() {
           className="max-w-2xl mx-auto text-center space-y-3"
         >
           <h1 className="text-blue-600 font-semibold text-lg">FEATURES</h1>
-          <h1 className="text-black text-5xl font-bold">
+          <h1 className="text-black text-4xl xl:text-5xl font-bold">
             Essential features for your next website.
           </h1>
         </motion.div>
@@ -413,14 +396,14 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="grid grid-cols-3  max-w-6xl mx-auto gap-5"
+          className="grid xl:grid-cols-3 grid-cols-1  max-w-6xl mx-auto gap-5 px-5 xl:px-0"
         >
           {[1, 2, 3, 4, 5, 6].map((item) => (
             <motion.li
               key={item}
               style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
               variants={slideUp}
-              className=" rounded-3xl flex flex-col items-center justify-center p-14 border border-zinc-100  space-y-4 bg-white"
+              className=" rounded-3xl flex flex-col items-center justify-center p-14 border border-zinc-200 shadow-zinc-100 space-y-4 bg-white"
             >
               <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
                 <CubeIcon className="h-10 text-blue-600" />
@@ -458,7 +441,7 @@ export default function Test() {
           </motion.h1>
           <motion.h2
             variants={slideUp}
-            className="text-black text-6xl font-bold"
+            className="text-black text-5xl xl:text-6xl font-bold"
           >
             Insights and news from the team.
           </motion.h2>
@@ -482,7 +465,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="grid grid-cols-2  max-w-6xl mx-auto gap-5"
+          className="grid xl:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 xl:px-0"
         >
           {[1, 2].map((item) => (
             <motion.li
@@ -525,7 +508,7 @@ export default function Test() {
           viewport={{ once: true }}
           whileInView={"visible"}
           variants={slideUp}
-          className="max-w-sm mx-auto w-full pt-3"
+          className="max-w-sm mx-auto w-full pt-3 px-5"
         >
           <Tabs
             selected={selected}
@@ -540,7 +523,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className=" max-w-6xl mx-auto grid grid-cols-3 gap-5 items-start"
+          className=" max-w-6xl mx-auto grid xl:grid-cols-3 gap-5 items-start px-5 xl:px-0"
         >
           {tiers.map((tier) => (
             <motion.li
@@ -550,13 +533,12 @@ export default function Test() {
               className=" flex flex-col rounded-3xl  group relative even:z-10 "
             >
               <div className="  rounded-3xl p-12  group-odd:bg-white group-even:bg-blue-600   relative overflow-hidden flex-1 border border-zinc-100  ">
-              
                 <div className="relative mb-5">
                   <h1 className="font-medium text-black text-2xl group-even:text-white flex  items-center justify-between">
                     {tier.name}
                     {selected === "yearly billing" && tier.name !== "Free" && (
                       <span className="text-xs bg-blue-50 group-even:bg-white text-blue-600 px-2 rounded-full py-1 flex items-center">
-                        <LightningBoltIcon className="h-3 mr-1" />
+                        <BoltIcon className="h-3 mr-1" />
                         SAVE ${tier.priceMonthly * 12 - tier.priceYearly}
                       </span>
                     )}
@@ -589,7 +571,10 @@ export default function Test() {
 
                 <ul className="space-y-5 relative">
                   {tier.includedFeatures.map((feature) => (
-                    <li key={feature} className="flex items-center text-zinc-600 group-even:text-zinc-50">
+                    <li
+                      key={feature}
+                      className="flex items-center text-zinc-600 group-even:text-zinc-50"
+                    >
                       <span className="mr-1">
                         <CheckIcon className="h-5 text-blue-600 group-even:text-white" />
                       </span>
