@@ -64,3 +64,13 @@ export const slideUpSlow = {
     },
   },
 };
+export const fadeIn = {
+  hidden: { opacity: 0},
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: .25,
+    duration: .5
+    },
+  },
+};

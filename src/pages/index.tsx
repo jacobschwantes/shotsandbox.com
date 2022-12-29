@@ -159,14 +159,14 @@ export default function Test() {
         }}
         className="h-screen  overflow-hidden relative  "
       >
-        <div className="xl:top-1/2 absolute xl:-translate-y-1/2 xl:left-1/3 xl:-translate-x-1/3 z-30 h-1/2  w-full xl:w-auto xl:h-auto flex justify-center items-center xl:block  ">
+        <div className="lg:top-1/2 absolute lg:-translate-y-1/2 lg:left-1/3 lg:-translate-x-1/3 z-30 h-1/2  w-full lg:w-auto lg:h-auto flex justify-center items-center lg:block  ">
           <motion.div
             initial={"hidden"}
             viewport={{ once: true }}
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="space-y-6 max-w-3xl xl:-mt-36 mt-24 px-5 xl:px-0 flex flex-col text-center items-center xl:text-left xl:items-start"
+            className="space-y-6 max-w-3xl lg:-mt-36 mt-36 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
           >
             <motion.h1
               variants={slideUp}
@@ -176,7 +176,7 @@ export default function Test() {
             </motion.h1>
             <motion.h1
               variants={slideUp}
-              className="text-black xl:text-7xl text-5xl font-bold"
+              className="text-black lg:text-7xl text-5xl font-bold "
             >
               Craft{" "}
               <motion.span
@@ -213,7 +213,7 @@ export default function Test() {
             </motion.h1>
             <motion.h2
               variants={slideUp}
-              className="text-zinc-700 xl:text-2xl text-xl max-w-lg"
+              className="text-zinc-700 lg:text-2xl text-xl max-w-lg"
             >
               Quickly generate previews of your project or app using our
               powerful editor.
@@ -237,9 +237,9 @@ export default function Test() {
           </motion.div>
         </div>
 
-        <div className="overflow-hidden xl:overflow-visible h-1/2 top-1/2 xl:top-auto xl:h-screen  bg-transparent absolute xl:right-[-15%] right-0 left-0 xl:left-auto ">
+        <div className="overflow-hidden lg:overflow-visible h-1/2 top-1/2 lg:top-auto lg:h-screen  bg-transparent absolute lg:right-[-15%] right-0 left-0 lg:left-auto ">
           <motion.div
-            className="h-full hidden xl:block"
+            className="h-full hidden lg:block"
             style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
           >
             <Carousel cols={3} itemSize={500} media={images} />
@@ -248,7 +248,7 @@ export default function Test() {
             style={{
               WebkitMask: `linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%)`,
             }}
-            className="h-full xl:hidden"
+            className="h-full lg:hidden"
           >
             <Carousel limit={10} cols={2} media={images} itemSize={350} />
           </motion.div>
@@ -270,7 +270,7 @@ export default function Test() {
           <h1 className="text-blue-600 font-semibold text-lg">
             COMPLETE TOOLKIT
           </h1>
-          <h1 className="text-black xl:text-5xl text-4xl font-bold">
+          <h1 className="text-black lg:text-5xl text-4xl font-bold">
             Building blocks for your next website.
           </h1>
         </motion.div>
@@ -281,7 +281,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="max-w-6xl mx-auto grid xl:grid-cols-3 grid-cols-1 gap-5 px-5 xl:px-0"
+          className="max-w-6xl mx-auto grid lg:grid-cols-3 grid-cols-1 gap-5 px-5 lg:px-0"
         >
           {[1, 2, 3].map((item) => (
             <motion.li
@@ -308,7 +308,7 @@ export default function Test() {
           id="examples"
           //@ts-ignore
           variants={staggerContainer}
-          className=" flex xl:space-x-24 xl:flex-row flex-col  justify-between items-center  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 xl:space-y-0 px-5 xl:px-0"
+          className=" flex lg:space-x-24 lg:flex-row flex-col  justify-between items-center lg:items-start  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 lg:space-y-0 px-5 lg:px-0"
         >
           <motion.div
             initial={"hidden"}
@@ -316,7 +316,7 @@ export default function Test() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className=" space-y-6  xl:sticky  top-32 h-min  max-w-md text-center xl:text-left "
+            className=" space-y-6  lg:sticky  top-32 h-min  max-w-md text-center lg:text-left "
           >
             <motion.h1
               variants={slideUp}
@@ -326,7 +326,7 @@ export default function Test() {
             </motion.h1>
             <motion.h1
               variants={slideUp}
-              className="text-black xl:text-5xl text-4xl font-bold"
+              className="text-black lg:text-5xl text-4xl font-bold"
             >
               Complete pages for your project.
             </motion.h1>
@@ -345,14 +345,14 @@ export default function Test() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="flex flex-col space-y-5 min-h-min relative"
+            className="grid space-y-5 min-h-min relative"
           >
             {[1, 2, 3].map((item) => (
               <motion.li
                 key={item}
                 variants={slideUp}
                 style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
-                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square space-y-4 bg-white"
+                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square  space-y-4 bg-white"
               >
                 <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
                   <CubeIcon className="h-8 text-blue-600" />
@@ -385,7 +385,7 @@ export default function Test() {
           className="max-w-2xl mx-auto text-center space-y-3"
         >
           <h1 className="text-blue-600 font-semibold text-lg">FEATURES</h1>
-          <h1 className="text-black text-4xl xl:text-5xl font-bold">
+          <h1 className="text-black text-4xl lg:text-5xl font-bold">
             Essential features for your next website.
           </h1>
         </motion.div>
@@ -396,7 +396,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="grid xl:grid-cols-3 grid-cols-1  max-w-6xl mx-auto gap-5 px-5 xl:px-0"
+          className="grid lg:grid-cols-3 grid-cols-1  max-w-6xl mx-auto gap-5 px-5 lg:px-0"
         >
           {[1, 2, 3, 4, 5, 6].map((item) => (
             <motion.li
@@ -441,7 +441,7 @@ export default function Test() {
           </motion.h1>
           <motion.h2
             variants={slideUp}
-            className="text-black text-5xl xl:text-6xl font-bold"
+            className="text-black text-5xl lg:text-6xl font-bold"
           >
             Insights and news from the team.
           </motion.h2>
@@ -465,7 +465,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="grid xl:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 xl:px-0"
+          className="grid lg:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 lg:px-0"
         >
           {[1, 2].map((item) => (
             <motion.li
@@ -523,7 +523,7 @@ export default function Test() {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className=" max-w-6xl mx-auto grid xl:grid-cols-3 gap-5 items-start px-5 xl:px-0"
+          className=" max-w-6xl mx-auto grid lg:grid-cols-3 gap-5 items-start px-5 lg:px-0"
         >
           {tiers.map((tier) => (
             <motion.li

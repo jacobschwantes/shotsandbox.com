@@ -22,7 +22,7 @@ const navigation = [
   { name: "Blog", href: "/blog", icon: QueueListIcon },
   { name: "Changelog", href: "/changelog", icon: DocumentIcon },
 ];
-import { staggerContainer, slideUpSlow, staggerContainerSlow } from "@utils/variants";
+import { staggerContainer, slideUpSlow, staggerContainerSlow, fadeIn } from "@utils/variants";
 import Link from "next/link";
 
 export default function Header() {
@@ -52,13 +52,13 @@ export default function Header() {
                      
                     </span> */}
                     <img
-                      className="block lg:hidden h-9 w-auto"
+                      className="hidden h-9 w-auto"
                       src="logo_short_light.png"
                       alt="screenshotify"
                     />
-                    <span className="hidden lg:flex  justify-center space-x-2  ">
+                    <span className="flex  justify-center space-x-2  ">
                       <img
-                        className=" h-6 "
+                        className=" h-7 "
                         src="logo_light.png"
                         alt="screenshotify"
                       />
@@ -67,7 +67,7 @@ export default function Header() {
                   </div>
                 </Link>
               </div>
-              <div className="hidden sm:block">
+              <div className="hidden lg:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
@@ -79,7 +79,7 @@ export default function Header() {
                   ))}
                 </div>
               </div>
-              <div className="hidden sm:flex space-x-5 items-center">
+              <div className="hidden lg:flex space-x-5 items-center">
                 <a
                   href="https://app.screenshotify.io"
                   className="flex  rounded-md border border-transparent items-center justify-center  font-medium text-blue-600  hover:text-blue-500 transition-all duration-300"
@@ -94,42 +94,42 @@ export default function Header() {
                 </a>
               </div>
 
-              <div className="flex items-center sm:hidden">
+              <div className="flex items-center lg:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-7" aria-hidden="true" />
+                    <XMarkIcon className="block h-8" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-7" aria-hidden="true" />
+                    <Bars3Icon className="block h-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden border-t border-zinc-100">
+          <Disclosure.Panel className="lg:hidden border-t border-zinc-100">
             <motion.div
               initial={"hidden"}
               viewport={{ once: true }}
               whileInView={"visible"}
               //@ts-ignore
               variants={staggerContainerSlow}
-              className="px-2  space-y-2 py-3"
+              className="px-2  space-y-2 py-5"
             >
               {navigation.map((item) => (
                 <motion.div variants={slideUpSlow} key={item.name}>
                   <Disclosure.Button
                     as="a"
                     href={item.href}
-                    className="flex px-3 py-3 text-xl font-medium hover:bg-gray-700 text-black items-center"
+                    className="flex px-3 py-3 text-xl font-medium hover:bg-zinc-100 duration-300 transition-all  bg-opacity-30 text-zinc-700 items-center rounded-lg"
                   >
                     <item.icon className="h-8 mr-3 text-blue-600" />
                     {item.name}
                   </Disclosure.Button>
                 </motion.div>
               ))}
-              <motion.div variants={slideUpSlow} className="w-full flex pt-3 space-x-5 px-2">
+              <motion.div variants={fadeIn} className="w-full flex pt-3 space-x-3 px-2">
                 <Disclosure.Button
                   as="a"
                   href="https://app.screenshotify.io"
