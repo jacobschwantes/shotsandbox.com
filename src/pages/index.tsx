@@ -2,7 +2,7 @@ import { Carousel, Tabs } from "@components/index";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { CubeIcon, BoltIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { slideUp, staggerContainer } from "@utils/variants";
 
 const media = [
@@ -127,14 +127,11 @@ const tiers = [
 export default function Test() {
   const [selected, setSelected] = useState("yearly billing");
   const [images, setImages] = useState(media);
-
   useEffect(() => {
     const interval = setInterval(() => {
       if (typeof window !== "undefined") {
         if (!document.hidden) {
           const newMedia = Array.from(images);
-          console.log(images);
-          console.log(newMedia);
           for (let i = 0; i < 3; i++) {
             const index = Math.floor(Math.random() * images.length);
             const newItem = {
@@ -159,7 +156,7 @@ export default function Test() {
         }}
         className="h-screen  overflow-hidden relative  "
       >
-        <div className="lg:top-1/2 absolute lg:-translate-y-1/2 lg:left-1/3 lg:-translate-x-1/3 z-30 h-1/2  w-full lg:w-auto lg:h-auto flex justify-center items-center lg:block  ">
+        <div className="lg:top-1/2 absolute lg:-translate-y-1/2 lg:left-1/3 lg:-translate-x-1/3 z-30 h-1/2 w-full lg:w-auto lg:h-auto flex justify-center items-center lg:block  ">
           <motion.div
             initial={"hidden"}
             viewport={{ once: true }}
@@ -237,9 +234,9 @@ export default function Test() {
           </motion.div>
         </div>
 
-        <div className="overflow-hidden lg:overflow-visible h-1/2 top-1/2 lg:top-auto lg:h-screen  bg-transparent absolute lg:right-[-15%] right-0 left-0 lg:left-auto ">
+        <div className="overflow-hidden lg:overflow-visible h-1/2 top-1/2 lg:top-auto lg:h-screen  bg-transparent absolute lg:right-[-120%] left-0 lg:left-auto ">
           <motion.div
-            className="h-full hidden lg:block"
+            className="h-full hidden lg:block w-1/3"
             style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
           >
             <Carousel cols={3} itemSize={500} media={images} />
