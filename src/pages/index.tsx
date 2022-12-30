@@ -1,10 +1,9 @@
 import { Carousel, Tabs } from "@components/index";
-import { CheckIcon } from "@heroicons/react/24/solid";
-import { CubeIcon, BoltIcon } from "@heroicons/react/24/solid";
+import { CheckIcon, CubeIcon, BoltIcon} from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { slideUp, staggerContainer } from "@utils/variants";
-
+import { useEffect, useState } from "react";
+import { slideUp, staggerContainer, draw } from "@utils/variants";
+import { smoothScroll } from "@utils/scroll";
 const media = [
   { src: "preview_1.png", id: 1 },
   { src: "preview_2.png", id: 2 },
@@ -23,63 +22,6 @@ const media = [
   { src: "preview_5.png", id: 15 },
 ];
 
-const scrollTo = (element: string, duration: number) => {
-  if (element) {
-    const startingY = window.pageYOffset;
-    const selector = document.querySelector(element);
-    const elementY =
-      selector && startingY + selector.getBoundingClientRect().top;
-
-    // If element is close to page's bottom then window will scroll only to some position above the element.
-    const targetY =
-      elementY && document.body.scrollHeight - elementY < window.innerHeight
-        ? document.body.scrollHeight - window.innerHeight
-        : elementY;
-    const diff = targetY && targetY - startingY;
-    // Easing function: easeInOutCubic
-    // From: https://gist.github.com/gre/1650294
-    const easing = function (t: number) {
-      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    };
-    let start: number;
-
-    if (!diff) return;
-
-    // Bootstrap our animation - it will get called right before next frame shall be rendered.
-    window.requestAnimationFrame(function step(timestamp) {
-      if (!start) start = timestamp;
-      // Elapsed miliseconds since start of scrolling.
-      const time = timestamp - start;
-      // Get percent of completion in range [0, 1].
-      let percent = Math.min(time / duration, 1);
-      // Apply the easing.
-      // It can cause bad-looking slow frames in browser performance tool, so be careful.
-      percent = easing(percent);
-
-      window.scrollTo(0, startingY + diff * percent);
-
-      // Proceed with animation as long as we wanted it to.
-      if (time < duration) {
-        window.requestAnimationFrame(step);
-      }
-    });
-  }
-};
-
-const draw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: () => {
-    const delay = 0.55;
-    return {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
-  },
-};
 
 const tiers = [
   {
@@ -124,7 +66,7 @@ const tiers = [
   },
 ];
 
-export default function Test() {
+export default function Home() {
   const [selected, setSelected] = useState("yearly billing");
   const [images, setImages] = useState(media);
   useEffect(() => {
@@ -216,14 +158,14 @@ export default function Test() {
             </motion.h2>
             <motion.div variants={slideUp} className="flex  space-x-3">
               <button
-                onClick={() => scrollTo("#pricing", 2000)}
+                onClick={() => smoothScroll("#pricing", 2000)}
                 type="button"
                 className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 Get started
               </button>
               <button
-                onClick={() => scrollTo("#examples", 1000)}
+                onClick={() => smoothScroll("#examples", 1000)}
                 type="button"
                 className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
               >
@@ -238,7 +180,7 @@ export default function Test() {
             className="h-full hidden lg:block w-1/2 "
             style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
           >
-            <Carousel cols={3} itemSize={500} media={images} />
+            <Carousel cols={3} media={images} />
           </motion.div>
           <motion.div
             style={{
@@ -246,7 +188,7 @@ export default function Test() {
             }}
             className="h-full lg:hidden"
           >
-            <Carousel limit={10} cols={2} media={images} itemSize={350} />
+            <Carousel limit={10} cols={2} media={images} />
           </motion.div>
         </div>
       </motion.div>
@@ -447,7 +389,7 @@ export default function Test() {
           </motion.p>
           <motion.button
             variants={slideUp}
-            onClick={() => scrollTo("#pricing", 2000)}
+            onClick={() => smoothScroll("#pricing", 2000)}
             type="button"
             className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >

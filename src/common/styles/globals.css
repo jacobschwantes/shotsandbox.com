@@ -4,12 +4,9 @@
 @tailwind utilities;
 
 html {
-  font-family: Inter;
+  font-family: Inter; 
+  -webkit-tap-highlight-color: transparent;
 }
 .slant {
   transform: rotateX(45deg) rotateY(-12deg) rotateZ(24deg) scaleX(125%);
-}
-
-html {
-  -webkit-tap-highlight-color: transparent;
 }

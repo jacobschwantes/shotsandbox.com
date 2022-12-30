@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@utils/variants";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import Ticker from "@components/Ticker/Ticker";
+import { Ticker } from "@components/index";
+import { smoothScroll } from "@utils/scroll";
 const CTA = () => (
   <div id="features" className="bg-blue-600 space-y-14 py-24 ">
     <motion.div
@@ -29,14 +30,14 @@ const CTA = () => (
         className="flex justify-center space-x-3 pt-3"
       >
         <button
-          //   onClick={() => scrollTo("#examples", 1000)}
+          onClick={() => smoothScroll("#examples", 1000)}
           type="button"
           className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-300"
         >
           Get started
         </button>
         <button
-          //   onClick={() => scrollTo("#pricing", 2000)}
+          onClick={() => smoothScroll("#pricing", 2000)}
           type="button"
           className="inline-flex items-center rounded-lg border border-transparent bg-blue-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
         >

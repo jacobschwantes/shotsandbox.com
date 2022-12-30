@@ -1,9 +1,9 @@
 const navigation = {
   navigation: [
-    { name: "Home", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "Examples", href: "#" },
-    { name: "Pricing", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Features", href: "/#features" },
+    { name: "Examples", href: "/#examples" },
+    { name: "Pricing", href: "/#pricing" },
   ],
   support: [
     { name: "Contact", href: "mailto:support@screenshotify.io" },
@@ -11,8 +11,8 @@ const navigation = {
     { name: "API Status", href: "https://status.screenshotify.io" },
   ],
   guides: [
-    { name: "Blog", href: "#" },
-    { name: "Changelog", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Changelog", href: "/changelog" },
   ],
   legal: [
     { name: "Privacy", href: "/privacy" },

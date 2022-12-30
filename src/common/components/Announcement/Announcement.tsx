@@ -1,6 +1,4 @@
-
 import { XMarkIcon } from '@heroicons/react/24/outline'
-
 export default function Announcement() {
   return (
     <div className="relative bg-blue-600">

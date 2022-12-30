@@ -4,4 +4,5 @@ import Announcement from "./Announcement";
 import Tabs from "./Tabs";
 import Carousel from "./Carousel"
 import CTA from "./CTA";
-export { Header, Footer, Announcement, Tabs, Carousel, CTA };
+import Ticker from "./Ticker";
+export { Header, Footer, Announcement, Tabs, Carousel, CTA, Ticker };
