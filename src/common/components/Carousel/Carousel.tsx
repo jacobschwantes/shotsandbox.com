@@ -29,12 +29,12 @@ const Carousel: NextComponentType<NextPageContext, {}, CarouselProps> = ({
         transition={{
           ease: "linear",
           repeat: Infinity,
-          duration: 5,
+          duration: 20,
         }}
         style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
         initial={{ y: "-10%" }}
         animate={{
-          y: "-60%",
+          y: "-43.33%",
         }}
         className="grid  "
       >
@@ -65,7 +65,43 @@ const Carousel: NextComponentType<NextPageContext, {}, CarouselProps> = ({
                     },
                   }}
                   key={`${item?.id}`}
-                  className="p-2"
+                  className="md:p-2 p-1"
+                >
+                  <motion.img
+                    src={item.src}
+                    className={` object-cover  overflow-hidden  aspect-square  rounded-xl`}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            )
+        )}
+        {media.map(
+          (item, index) =>
+            (!limit || index < limit) && (
+              <AnimatePresence
+                key={`${index}bottom`}
+                mode="wait"
+                initial={false}
+              >
+                <motion.div
+                  initial={{ rotateY: -90 }}
+                  exit={{
+                    rotateY: 90,
+                    transition: {
+                      delay: item?.delay ?? 0,
+                      duration: 2,
+                      ease: "linear",
+                    },
+                  }}
+                  animate={{
+                    rotateY: 0,
+                    transition: {
+                      duration: 2,
+                      ease: "linear",
+                    },
+                  }}
+                  key={`${item?.id}`}
+                  className="md:p-2 p-1"
                 >
                   <motion.img
                     src={item.src}

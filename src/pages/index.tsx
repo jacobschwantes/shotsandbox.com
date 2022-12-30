@@ -163,7 +163,7 @@ export default function Test() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="space-y-6 max-w-3xl lg:-mt-36 mt-36 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
+            className="space-y-6 max-w-3xl lg:-mt-36 mt-52 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
           >
             <motion.h1
               variants={slideUp}
@@ -193,15 +193,14 @@ export default function Test() {
                   <motion.path
                     variants={draw}
                     fill="transparent"
-                    stroke-width="2"
+                    strokeWidth="2"
                     stroke="rgba(29, 78, 216, 0.3)
                     "
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     d="M1 6L62 1L41 6H112"
                     pathLength="1"
-                    stroke-dashoffset="0px"
-                    stroke-dasharray="1px 1px"
-                    data-projection-id="24"
+                    strokeDashoffset="0px"
+                    strokeDasharray="1px 1px"
                   ></motion.path>
                 </motion.svg>
                 stunning
@@ -234,9 +233,9 @@ export default function Test() {
           </motion.div>
         </div>
 
-        <div className="overflow-hidden lg:overflow-visible h-1/2 top-1/2 lg:top-auto lg:h-screen  bg-transparent absolute lg:right-[-120%] left-0 lg:left-auto ">
+        <div className="overflow-hidden lg:overflow-visible h-1/2 top-1/2 lg:top-auto lg:h-screen  bg-transparent absolute lg:right-[-25%] 2xl:right-[-15%]  left-0 lg:left-auto flex justify-end ">
           <motion.div
-            className="h-full hidden lg:block w-1/3"
+            className="h-full hidden lg:block w-1/2 "
             style={{ rotateX: 45, rotateY: -12, rotateZ: 24, scaleX: "125%" }}
           >
             <Carousel cols={3} itemSize={500} media={images} />

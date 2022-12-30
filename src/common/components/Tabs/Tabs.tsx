@@ -16,6 +16,7 @@ const Tabs: NextComponentType<NextPageContext, {}, TabsProps> = ({
     <div className="flex space-x-2 rounded-xl bg-gray-100  p-1 max-w-4xl ">
       {tabs.map((tab) => (
         <button
+          key={tab}
           onClick={() => setSelected(tab)}
           className={clsx(
             "flex w-full items-center justify-center rounded-lg py-2.5 text-center text-sm font-medium capitalize leading-5 transition-all duration-300 select-none outline-none",
