@@ -11,7 +11,7 @@ const navigation = {
     { name: "API Status", href: "https://status.screenshotify.io" },
   ],
   guides: [
-    { name: "Blog", href: "/blog" },
+    // { name: "Blog", href: "/blog" },
     { name: "Changelog", href: "/changelog" },
   ],
   legal: [

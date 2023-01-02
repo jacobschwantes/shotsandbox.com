@@ -19,7 +19,7 @@ const navigation = [
   { name: "Features", href: "/#features", icon: RectangleGroupIcon },
   { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
   { name: "Examples", href: "/#examples", icon: LightBulbIcon },
-  { name: "Blog", href: "/blog", icon: QueueListIcon },
+  // { name: "Blog", href: "/blog", icon: QueueListIcon },
   { name: "Changelog", href: "/changelog", icon: DocumentIcon },
 ];
 import { staggerContainer, slideUpSlow, staggerContainerSlow, fadeIn } from "@utils/variants";

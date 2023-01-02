@@ -1,5 +1,5 @@
 import { Carousel, Tabs } from "@components/index";
-import { CheckIcon, CubeIcon, BoltIcon} from "@heroicons/react/24/solid";
+import { CheckIcon, CubeIcon, BoltIcon, ArrowDownOnSquareIcon, ArrowPathIcon, PhotoIcon, LockOpenIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { slideUp, staggerContainer, draw } from "@utils/variants";
@@ -22,6 +22,70 @@ const media = [
   { src: "preview_5.png", id: 15 },
 ];
 
+const features = [
+  {
+    id: 1,
+    title: "20+ Templates",
+    description:
+      "Create your own or choose from over 20 curated templates. Customize your preview, choose export type, and you're ready to share.",
+  },
+  {
+    id: 2,
+    title: "16+ Dimension Presets",
+    description:
+      "With over 16 export presets, you can quickly create previews sized specially for platforms such as Twitter, Facebook, Instagram, Product Hunt, Github, and more.",
+  },
+  {
+    id: 3,
+    title: "35+ Customizations",
+    description:
+      "Customize your preview using over 35 inputs in 8 different categories. Adjust size, position, 3D orientation, background, shadow, browser frames, gradients, and more.",
+  },
+];
+const features2 = [
+  {
+    id: 1,
+    title: "Export Options",
+    description:
+      "Export to png, jpg, webp or copy to clipboard.",
+    icon: ArrowDownOnSquareIcon,
+  },
+  {
+    id: 2,
+    title: "Custom Presets",
+    description:
+      "Save, favorite, and share custom templates.",
+    icon: CubeIcon,
+  },
+  {
+    id: 3,
+    title: "Undo & Redo",
+    description:
+      "Undo or redo recent changes to a preview.",
+    icon: ArrowPathIcon,
+  },
+  {
+    id: 4,
+    title: "Custom Backgrounds",
+    description:
+      "Upload or input a link to a custom background.",
+    icon: PhotoIcon,
+  },
+  {
+    id: 5,
+    title: "Unlimited Exports",
+    description:
+      "Unlimited preview exports and downloads for all users.",
+    icon: LockOpenIcon,
+  },
+  {
+    id: 6,
+    title: "Dynamic Generation",
+    description:
+      "Use the API to dynamically generate server-rendered previews.",
+    icon: BoltIcon,
+  },
+];
 
 const tiers = [
   {
@@ -209,7 +273,7 @@ export default function Home() {
             COMPLETE TOOLKIT
           </h1>
           <h1 className="text-black lg:text-5xl text-4xl font-bold">
-            Building blocks for your next website.
+            All the tools you'll need to share your project.
           </h1>
         </motion.div>
 
@@ -221,22 +285,17 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-6xl mx-auto grid lg:grid-cols-3 grid-cols-1 gap-5 px-5 lg:px-0"
         >
-          {[1, 2, 3].map((item) => (
+          {features.map((item) => (
             <motion.li
-              key={item}
+              key={item.id}
               variants={slideUp}
               className="shadow-xl shadow-zinc-100 rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square space-y-4"
             >
               <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
                 <CubeIcon className="h-8 text-blue-600" />
               </div>
-              <h1 className="font-medium text-black text-2xl">
-                25+ Prebuilt Pages
-              </h1>
-              <p className="text-zinc-500 text-lg">
-                Choose from 20+ pages from various categories. Customize your
-                page, hit publish and instantly see your site live.
-              </p>
+              <h1 className="font-medium text-black text-2xl">{item.title}</h1>
+              <p className="text-zinc-500 text-lg">{item.description}</p>
             </motion.li>
           ))}
         </motion.ul>
@@ -266,14 +325,15 @@ export default function Home() {
               variants={slideUp}
               className="text-black lg:text-5xl text-4xl font-bold"
             >
-              Complete pages for your project.
+              A powerful and easy to use editor.
             </motion.h1>
             <motion.h2
               variants={slideUp}
               className="text-zinc-700 text-xl max-w-lg"
             >
-              Create beautiful pages within minutes directly in Framer. Easily
-              customize images, content, and style to make it your own.
+              Create beautiful previews of your projects within seconds directly
+              in the editor. Easily customize images, content, and style to make
+              it your own.
             </motion.h2>
           </motion.div>
 
@@ -336,28 +396,29 @@ export default function Home() {
           variants={staggerContainer}
           className="grid lg:grid-cols-3 grid-cols-1  max-w-6xl mx-auto gap-5 px-5 lg:px-0"
         >
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {features2.map((feature) => (
             <motion.li
-              key={item}
+              key={feature.id}
               style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
               variants={slideUp}
               className=" rounded-3xl flex flex-col items-center justify-center p-14 border border-zinc-200 shadow-zinc-100 space-y-4 bg-white"
             >
               <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
-                <CubeIcon className="h-10 text-blue-600" />
+                <feature.icon className="h-10 text-blue-600" />
               </div>
 
               <h1 className="font-medium text-black text-2xl">
-                Fully responsive
+                {feature.title}
               </h1>
               <p className="text-zinc-500  text-lg text-center ">
-                Layouts that adapt to any device.
+                {feature.description}
               </p>
             </motion.li>
           ))}
         </motion.ul>
       </motion.div>
-      <motion.div
+      {/* blog}
+      {/* <motion.div
         id="resources"
         //@ts-ignore
         variants={staggerContainer}
@@ -387,14 +448,14 @@ export default function Home() {
             Discover articles and guides from Ultra team and improve
             functionality of your websites.
           </motion.p>
-          <motion.button
-            variants={slideUp}
-            onClick={() => smoothScroll("#pricing", 2000)}
-            type="button"
-            className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            See all posts
-          </motion.button>
+          <Link href="/blog">
+            <motion.a
+              variants={slideUp}
+              className="inline-flex cursor-pointer items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              See all posts
+            </motion.a>
+          </Link>
         </motion.div>
 
         <motion.ul
@@ -421,7 +482,7 @@ export default function Home() {
             </motion.li>
           ))}
         </motion.ul>
-      </motion.div>
+      </motion.div> */}
       <motion.div
         id="pricing"
         //@ts-ignore

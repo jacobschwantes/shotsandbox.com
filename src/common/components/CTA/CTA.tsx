@@ -3,6 +3,8 @@ import { slideUp, staggerContainer } from "@utils/variants";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { Ticker } from "@components/index";
 import { smoothScroll } from "@utils/scroll";
+import Link from "next/link";
+const features = ['Position', 'Gradients', '3D Orientation', 'Layouts', 'Headers', 'Backgrounds', 'Frames', 'Borders', 'Shadows']
 const CTA = () => (
   <div id="features" className="bg-blue-600 space-y-14 py-24 ">
     <motion.div
@@ -29,20 +31,22 @@ const CTA = () => (
         variants={slideUp}
         className="flex justify-center space-x-3 pt-3"
       >
-        <button
-          onClick={() => smoothScroll("#examples", 1000)}
-          type="button"
-          className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-300"
-        >
-          Get started
-        </button>
-        <button
-          onClick={() => smoothScroll("#pricing", 2000)}
-          type="button"
-          className="inline-flex items-center rounded-lg border border-transparent bg-blue-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
-        >
-          Examples
-        </button>
+        <Link href="/#pricing">
+          <button
+            type="button"
+            className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-300"
+          >
+            Get started
+          </button>
+        </Link>
+        <Link href="/#examples">
+          <button
+            type="button"
+            className="inline-flex items-center rounded-lg border border-transparent bg-blue-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+          >
+            Examples
+          </button>
+        </Link>
       </motion.div>
     </motion.div>
     <motion.div
@@ -57,7 +61,7 @@ const CTA = () => (
       className="overflow-hidden"
     >
       <Ticker baseVelocity={0.5}>
-        {Array.from(Array(6)).map((item, index) => (
+        {features.map((item, index) => (
           <motion.li
             key={index}
             className="flex items-center justify-center px-4 py-2 space-x-2 rounded-full bg-black bg-opacity-30"
@@ -65,7 +69,7 @@ const CTA = () => (
             <CheckCircleIcon className="h-8 text-white" />
 
             <h1 className="font-medium text-white text-xl whitespace-nowrap">
-              Super Cool {index}
+              {item}
             </h1>
           </motion.li>
         ))}
