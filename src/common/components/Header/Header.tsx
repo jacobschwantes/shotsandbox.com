@@ -17,9 +17,9 @@ import {
 import { motion } from "framer-motion";
 const navigation = [
   { name: "Features", href: "/#features", icon: RectangleGroupIcon },
-  { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
+  // { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
   { name: "Examples", href: "/#examples", icon: LightBulbIcon },
-  // { name: "Blog", href: "/blog", icon: QueueListIcon },
+  { name: "Guides", href: "/blog", icon: QueueListIcon },
   { name: "Changelog", href: "/changelog", icon: DocumentIcon },
 ];
 import { staggerContainer, slideUpSlow, staggerContainerSlow, fadeIn } from "@utils/variants";
@@ -53,7 +53,7 @@ export default function Header() {
                     </span> */}
                     <img
                       className="hidden h-9 w-auto"
-                      src="logo_short_light.png"
+                      src="logo_short.png"
                       alt="screenshotify"
                     />
                     <span className="flex  justify-center space-x-2  ">
@@ -71,7 +71,7 @@ export default function Header() {
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
-                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-blue-600 dark:text-zinc-700 text-zinc-900 hover:text-blue-600 font-medium transition-all duration-300 ">
+                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-sky-500 dark:text-zinc-700 text-zinc-900 hover:text-sky-500 font-medium transition-all duration-300 ">
                         {/* <item.icon className="h-6 mr-2 " /> */}
                         {item.name}
                       </a>
@@ -82,21 +82,15 @@ export default function Header() {
               <div className="hidden lg:flex space-x-5 items-center">
                 <a
                   href="https://app.screenshotify.io"
-                  className="flex  rounded-md border border-transparent items-center justify-center  font-medium text-blue-600  hover:text-blue-500 transition-all duration-300"
+                  className="inline-flex items-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-300"
                 >
-                  Log in
-                </a>
-                <a
-                  href="https://app.screenshotify.io"
-                  className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300"
-                >
-                  Sign up
+                  Open Editor
                 </a>
               </div>
 
               <div className="flex items-center lg:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600 ">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-sky-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500 ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-8" aria-hidden="true" />
@@ -124,7 +118,7 @@ export default function Header() {
                     href={item.href}
                     className="flex px-3 py-3 text-xl font-medium hover:bg-zinc-100 duration-300 transition-all  bg-opacity-30 text-zinc-700 items-center rounded-lg"
                   >
-                    <item.icon className="h-8 mr-3 text-blue-600" />
+                    <item.icon className="h-8 mr-3 text-sky-500" />
                     {item.name}
                   </Disclosure.Button>
                 </motion.div>
@@ -133,16 +127,9 @@ export default function Header() {
                 <Disclosure.Button
                   as="a"
                   href="https://app.screenshotify.io"
-                  className=" w-full inline-flex items-center justify-center rounded-lg border  bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                  className="w-full inline-flex items-center justify-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                 >
-                  Log in
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="https://app.screenshotify.io"
-                  className="w-full inline-flex items-center justify-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                  Sign up
+                  Open Editor
                 </Disclosure.Button>
               </motion.div>
             </motion.div>

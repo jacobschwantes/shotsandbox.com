@@ -12,7 +12,7 @@ const logs = [
 export default function Example() {
   return (
     <div className="flex-1 flex flex-col h-full min-h-screen">
-      <div className="bg-blue-50 mt-16">
+      <div className="bg-sky-50 mt-16">
         <div className=" py-32 flex flex-col justify-center items-center text-center space-y-5">
           <h1 className="text-black text-4xl lg:text-6xl font-bold">
             Changelog

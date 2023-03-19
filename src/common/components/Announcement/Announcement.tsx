@@ -1,7 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/24/outline'
 export default function Announcement() {
   return (
-    <div className="relative bg-blue-600">
+    <div className="relative bg-sky-600">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div className="pr-16 sm:text-center sm:px-16">
           <p className="font-medium text-white">
@@ -19,7 +19,7 @@ export default function Announcement() {
           <button
           // onClick={() => props.setOpen(false)}
             type="button"
-            className="flex p-2 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex p-2 rounded-md hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-white"
           >
             <span className="sr-only">Dismiss</span>
             <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />

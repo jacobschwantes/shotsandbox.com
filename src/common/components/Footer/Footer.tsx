@@ -3,12 +3,12 @@ const navigation = {
     { name: "Home", href: "/" },
     { name: "Features", href: "/#features" },
     { name: "Examples", href: "/#examples" },
-    { name: "Pricing", href: "/#pricing" },
+    // { name: "Pricing", href: "/#pricing" },
   ],
   support: [
     { name: "Contact", href: "mailto:support@screenshotify.io" },
     { name: "Feedback", href: "mailto:feedback@screenshotify.io" },
-    { name: "API Status", href: "https://status.screenshotify.io" },
+    // { name: "API Status", href: "https://status.screenshotify.io" },
   ],
   guides: [
     // { name: "Blog", href: "/blog" },
@@ -62,7 +62,7 @@ export default function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-blue-600 transition-colors duration-300"
+                  className="text-gray-400 hover:text-sky-600 transition-colors duration-300"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />

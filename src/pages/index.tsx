@@ -1,5 +1,13 @@
 import { Carousel, Tabs } from "@components/index";
-import { CheckIcon, CubeIcon, BoltIcon, ArrowDownOnSquareIcon, ArrowPathIcon, PhotoIcon, LockOpenIcon } from "@heroicons/react/24/solid";
+import {
+  CheckIcon,
+  CubeIcon,
+  BoltIcon,
+  ArrowDownOnSquareIcon,
+  ArrowPathIcon,
+  PhotoIcon,
+  LockOpenIcon,
+} from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { slideUp, staggerContainer, draw } from "@utils/variants";
@@ -46,36 +54,31 @@ const features2 = [
   {
     id: 1,
     title: "Export Options",
-    description:
-      "Export to png, jpg, webp or copy to clipboard.",
+    description: "Export to png, jpg, webp or copy to clipboard.",
     icon: ArrowDownOnSquareIcon,
   },
   {
     id: 2,
     title: "Custom Presets",
-    description:
-      "Save, favorite, and share custom templates.",
+    description: "Save, favorite, and share custom templates.",
     icon: CubeIcon,
   },
   {
     id: 3,
     title: "Undo & Redo",
-    description:
-      "Undo or redo recent changes to a preview.",
+    description: "Undo or redo recent changes to a preview.",
     icon: ArrowPathIcon,
   },
   {
     id: 4,
     title: "Custom Backgrounds",
-    description:
-      "Upload or input a link to a custom background.",
+    description: "Upload or input a link to a custom background.",
     icon: PhotoIcon,
   },
   {
     id: 5,
     title: "Unlimited Exports",
-    description:
-      "Unlimited preview exports and downloads for all users.",
+    description: "Unlimited preview exports and downloads for all users.",
     icon: LockOpenIcon,
   },
   {
@@ -158,7 +161,7 @@ export default function Home() {
     <div className="flex flex-col bg-white font-inter">
       <motion.div
         style={{
-          background: `radial-gradient(106.9% 91.8% at 100% 100%, #2563eb 0%, var(--token-8c47652b-dea5-4767-a9f2-5d952dcce49a, rgb(255, 255, 255))  100%)`,
+          background: `radial-gradient(106.9% 91.8% at 100% 100%, #64c7f9 0%, var(--token-8c47652b-dea5-4767-a9f2-5d952dcce49a, rgb(255, 255, 255))  100%)`,
         }}
         className="h-screen  overflow-hidden relative  "
       >
@@ -173,7 +176,7 @@ export default function Home() {
           >
             <motion.h1
               variants={slideUp}
-              className="text-blue-600 font-semibold text-lg"
+              className="text-sky-600 font-semibold text-lg"
             >
               BUILD YOUR BRAND
             </motion.h1>
@@ -185,7 +188,7 @@ export default function Home() {
               <motion.span
                 initial={{ color: "#00000" }}
                 transition={{ delay: 0.29 }}
-                animate={{ color: "#2563eb" }}
+                animate={{ color: "#21aff7" }}
                 className="relative whitespace-nowrap bg-clip-text "
               >
                 <motion.svg
@@ -200,8 +203,8 @@ export default function Home() {
                     variants={draw}
                     fill="transparent"
                     strokeWidth="2"
-                    stroke="rgba(29, 78, 216, 0.3)
-                    "
+                    stroke="#21aff7"
+                    strokeOpacity={.25}
                     strokeLinecap="round"
                     d="M1 6L62 1L41 6H112"
                     pathLength="1"
@@ -217,21 +220,21 @@ export default function Home() {
               variants={slideUp}
               className="text-zinc-700 lg:text-2xl text-xl max-w-lg"
             >
-              Quickly generate previews of your project or app using our
+              Quickly turn boring screenshots into eye-catching previews using our
               powerful editor.
             </motion.h2>
             <motion.div variants={slideUp} className="flex  space-x-3">
               <button
                 onClick={() => smoothScroll("#pricing", 2000)}
                 type="button"
-                className="inline-flex items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="inline-flex items-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
               >
                 Get started
               </button>
               <button
                 onClick={() => smoothScroll("#examples", 1000)}
                 type="button"
-                className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-sky-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2"
               >
                 Examples
               </button>
@@ -269,7 +272,7 @@ export default function Home() {
           variants={slideUp}
           className="max-w-xl mx-auto text-center space-y-3"
         >
-          <h1 className="text-blue-600 font-semibold text-lg">
+          <h1 className="text-sky-600 font-semibold text-lg">
             COMPLETE TOOLKIT
           </h1>
           <h1 className="text-black lg:text-5xl text-4xl font-bold">
@@ -291,8 +294,8 @@ export default function Home() {
               variants={slideUp}
               className="shadow-xl shadow-zinc-100 rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square space-y-4"
             >
-              <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
-                <CubeIcon className="h-8 text-blue-600" />
+              <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
+                <CubeIcon className="h-8 text-sky-600" />
               </div>
               <h1 className="font-medium text-black text-2xl">{item.title}</h1>
               <p className="text-zinc-500 text-lg">{item.description}</p>
@@ -300,7 +303,7 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div>
-      <div className="bg-blue-50">
+      <div className="bg-sky-50">
         <motion.div
           id="examples"
           //@ts-ignore
@@ -317,7 +320,7 @@ export default function Home() {
           >
             <motion.h1
               variants={slideUp}
-              className="text-blue-600 font-semibold text-lg"
+              className="text-sky-600 font-semibold text-lg"
             >
               EXAMPLES
             </motion.h1>
@@ -352,8 +355,8 @@ export default function Home() {
                 style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
                 className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square  space-y-4 bg-white"
               >
-                <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
-                  <CubeIcon className="h-8 text-blue-600" />
+                <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
+                  <CubeIcon className="h-8 text-sky-600" />
                 </div>
 
                 <h1 className="font-medium text-black text-2xl">
@@ -382,7 +385,7 @@ export default function Home() {
           variants={slideUp}
           className="max-w-2xl mx-auto text-center space-y-3"
         >
-          <h1 className="text-blue-600 font-semibold text-lg">FEATURES</h1>
+          <h1 className="text-sky-600 font-semibold text-lg">FEATURES</h1>
           <h1 className="text-black text-4xl lg:text-5xl font-bold">
             Essential features for your next website.
           </h1>
@@ -403,8 +406,8 @@ export default function Home() {
               variants={slideUp}
               className=" rounded-3xl flex flex-col items-center justify-center p-14 border border-zinc-200 shadow-zinc-100 space-y-4 bg-white"
             >
-              <div className="p-2 bg-blue-500 bg-opacity-10 rounded-lg">
-                <feature.icon className="h-10 text-blue-600" />
+              <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
+                <feature.icon className="h-10 text-sky-600" />
               </div>
 
               <h1 className="font-medium text-black text-2xl">
@@ -422,7 +425,7 @@ export default function Home() {
         id="resources"
         //@ts-ignore
         variants={staggerContainer}
-        className="bg-blue-50 space-y-24 py-24 "
+        className="bg-sky-50 space-y-24 py-24 "
       >
         <motion.div
           //@ts-ignore
@@ -434,7 +437,7 @@ export default function Home() {
         >
           <motion.h1
             variants={slideUp}
-            className="text-blue-600 font-semibold text-lg"
+            className="text-sky-600 font-semibold text-lg"
           >
             RESOURCES
           </motion.h1>
@@ -451,7 +454,7 @@ export default function Home() {
           <Link href="/blog">
             <motion.a
               variants={slideUp}
-              className="inline-flex cursor-pointer items-center rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="inline-flex cursor-pointer items-center rounded-lg border border-transparent bg-sky-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
             >
               See all posts
             </motion.a>
@@ -471,7 +474,7 @@ export default function Home() {
               key={item}
               style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
               variants={slideUp}
-              className=" rounded-3xl flex flex-col items-start justify-end p-10 border border-zinc-100  space-y-4 bg-gradient-to-br from-white to-white via-blue-300 h-96"
+              className=" rounded-3xl flex flex-col items-start justify-end p-10 border border-zinc-100  space-y-4 bg-gradient-to-br from-white to-white via-sky-300 h-96"
             >
               <h1 className="text-zinc-100 text-lg uppercase font-bold tracking-wide">
                 Inspiration
@@ -483,7 +486,7 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div> */}
-      <motion.div
+      {/* <motion.div
         id="pricing"
         //@ts-ignore
         variants={staggerContainer}
@@ -496,7 +499,7 @@ export default function Home() {
           variants={slideUp}
           className="max-w-2xl mx-auto text-center space-y-3"
         >
-          <h1 className="text-blue-600 font-semibold text-lg">PRICING</h1>
+          <h1 className="text-sky-600 font-semibold text-lg">PRICING</h1>
           <h1 className="text-black text-5xl font-bold">
             Ready to get started?
           </h1>
@@ -531,12 +534,12 @@ export default function Home() {
               variants={slideUp}
               className=" flex flex-col rounded-3xl  group relative even:z-10 "
             >
-              <div className="  rounded-3xl p-12  group-odd:bg-white group-even:bg-blue-600   relative overflow-hidden flex-1 border border-zinc-100  ">
+              <div className="  rounded-3xl p-12  group-odd:bg-white group-even:bg-sky-600   relative overflow-hidden flex-1 border border-zinc-100  ">
                 <div className="relative mb-5">
                   <h1 className="font-medium text-black text-2xl group-even:text-white flex  items-center justify-between">
                     {tier.name}
                     {selected === "yearly billing" && tier.name !== "Free" && (
-                      <span className="text-xs bg-blue-50 group-even:bg-white text-blue-600 px-2 rounded-full py-1 flex items-center">
+                      <span className="text-xs bg-sky-50 group-even:bg-white text-sky-600 px-2 rounded-full py-1 flex items-center">
                         <BoltIcon className="h-3 mr-1" />
                         SAVE ${tier.priceMonthly * 12 - tier.priceYearly}
                       </span>
@@ -563,7 +566,7 @@ export default function Home() {
                 </div>
                 <a
                   href="https://app.screenshotify.io"
-                  className="mb-5 relative inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-white group-odd:bg-blue-600  px-4 py-2 font-medium group-odd:text-white text-blue-600 shadow-sm hover:bg-zinc-200 group-odd:hover:bg-blue-700  focus:outline-2 focus:outline outline-offset-2 focus:outline-blue-500 group-even:outline-white transition-colors duration-300"
+                  className="mb-5 relative inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-white group-odd:bg-sky-600  px-4 py-2 font-medium group-odd:text-white text-sky-600 shadow-sm hover:bg-zinc-200 group-odd:hover:bg-sky-700  focus:outline-2 focus:outline outline-offset-2 focus:outline-sky-500 group-even:outline-white transition-colors duration-300"
                 >
                   Get started
                 </a>
@@ -575,7 +578,7 @@ export default function Home() {
                       className="flex items-center text-zinc-600 group-even:text-zinc-50"
                     >
                       <span className="mr-1">
-                        <CheckIcon className="h-5 text-blue-600 group-even:text-white" />
+                        <CheckIcon className="h-5 text-sky-600 group-even:text-white" />
                       </span>
                       {feature}
                     </li>
@@ -585,7 +588,7 @@ export default function Home() {
             </motion.li>
           ))}
         </motion.ul>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }

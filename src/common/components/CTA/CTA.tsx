@@ -6,7 +6,7 @@ import { smoothScroll } from "@utils/scroll";
 import Link from "next/link";
 const features = ['Position', 'Gradients', '3D Orientation', 'Layouts', 'Headers', 'Backgrounds', 'Frames', 'Borders', 'Shadows']
 const CTA = () => (
-  <div id="features" className="bg-blue-600 space-y-14 py-24 ">
+  <div id="features" className="bg-sky-600 space-y-14 py-24 ">
     <motion.div
       //@ts-ignore
       variants={staggerContainer}
@@ -34,7 +34,7 @@ const CTA = () => (
         <Link href="/#pricing">
           <button
             type="button"
-            className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-blue-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors duration-300"
+            className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-sky-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 transition-colors duration-300"
           >
             Get started
           </button>
@@ -42,7 +42,7 @@ const CTA = () => (
         <Link href="/#examples">
           <button
             type="button"
-            className="inline-flex items-center rounded-lg border border-transparent bg-blue-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+            className="inline-flex items-center rounded-lg border border-transparent bg-sky-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors duration-300"
           >
             Examples
           </button>
