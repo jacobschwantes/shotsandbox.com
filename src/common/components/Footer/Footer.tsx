@@ -1,22 +1,17 @@
 const navigation = {
   navigation: [
     { name: "Home", href: "/" },
+    { name: "Demo", href: "/#demo" },
     { name: "Features", href: "/#features" },
-    { name: "Examples", href: "/#examples" },
-    // { name: "Pricing", href: "/#pricing" },
   ],
   support: [
-    { name: "Contact", href: "mailto:support@screenshotify.io" },
-    { name: "Feedback", href: "mailto:feedback@screenshotify.io" },
+    { name: "Contact", href: "mailto:contact@shotsandbox.com" },
+    { name: "Support", href: "mailto:support@shotsandbox.com" },
     // { name: "API Status", href: "https://status.screenshotify.io" },
   ],
   guides: [
-    // { name: "Blog", href: "/blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Changelog", href: "/changelog" },
-  ],
-  legal: [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
   ],
   social: [
     {
@@ -53,7 +48,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img className="h-6" src="logo_light.png" alt="Company name" />
+            <img className="h-6" src="/logo_light.png" alt="Company name" />
             <p className="text-gray-500 text-base">
              Creating stunning marketing images for your brands and projects.
             </p>
@@ -125,23 +120,7 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-base font-medium text-gray-900">
-                  Legal
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-500 hover:text-gray-900 transition-all duration-300"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+     
             </div>
           </div>
         </div>

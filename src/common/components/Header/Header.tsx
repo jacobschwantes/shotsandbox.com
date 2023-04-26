@@ -2,12 +2,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
-  BookOpenIcon,
-  CpuChipIcon,
-  CreditCardIcon,
-  ArrowDownTrayIcon,
   Bars3Icon,
-  PencilIcon,
   XMarkIcon,
   RectangleGroupIcon,
   LightBulbIcon,
@@ -18,8 +13,8 @@ import { motion } from "framer-motion";
 const navigation = [
   { name: "Features", href: "/#features", icon: RectangleGroupIcon },
   // { name: "Pricing", href: "/#pricing", icon: CreditCardIcon },
-  { name: "Examples", href: "/#examples", icon: LightBulbIcon },
-  { name: "Guides", href: "/blog", icon: QueueListIcon },
+  { name: "Demo", href: "/#demo", icon: LightBulbIcon },
+  { name: "Blog", href: "/blog", icon: QueueListIcon },
   { name: "Changelog", href: "/changelog", icon: DocumentIcon },
 ];
 import { staggerContainer, slideUpSlow, staggerContainerSlow, fadeIn } from "@utils/variants";
@@ -38,31 +33,19 @@ export default function Header() {
               <div className="flex items-center justify-between ">
                 <Link href="/">
                   <div className="flex-shrink-0 flex items-center cursor-pointer p-2">
-                    {/* <img
-                      className="hidden dark:block lg:hidden h-7 w-auto"
-                      src="logo_short.png"
-                      alt="screenshotify"
-                    />
-                    <span className="hidden dark:lg:flex  justify-center space-x-2 ">
-                      <img
-                        className=" h-7 "
-                        src="logo.png"
-                        alt="screenshotify"
-                      />
-                     
-                    </span> */}
+        
                     <img
                       className="hidden h-9 w-auto"
-                      src="logo_short.png"
-                      alt="screenshotify"
+                      src="/logo_short.png"
+                      alt="shotsandbox"
                     />
                     <span className="flex  justify-center space-x-2  ">
                       <img
                         className=" h-7 "
-                        src="logo_light.png"
-                        alt="screenshotify"
+                        src="/logo_light.png"
+                        alt="shotsandbox"
                       />
-                      {/* <h1 className="text-2xl font-medium  text-center">screenshotify</h1> */}
+                     
                     </span>
                   </div>
                 </Link>
@@ -71,17 +54,16 @@ export default function Header() {
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
-                      <a className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-sky-500 dark:text-zinc-700 text-zinc-900 hover:text-sky-500 font-medium transition-all duration-300 ">
-                        {/* <item.icon className="h-6 mr-2 " /> */}
+                      <button className="px-3 py-2 rounded-md  flex items-center justify-center dark:hover:text-sky-500 dark:text-zinc-700 text-zinc-900 hover:text-sky-500 font-medium transition-all duration-300 cursor-pointer">
                         {item.name}
-                      </a>
+                      </button>
                     </Link>
                   ))}
                 </div>
               </div>
               <div className="hidden lg:flex space-x-5 items-center">
                 <a
-                  href="https://app.screenshotify.io"
+                  href="https://app.shotsandbox.com"
                   className="inline-flex items-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-all duration-300"
                 >
                   Open Editor
@@ -108,7 +90,7 @@ export default function Header() {
               viewport={{ once: true }}
               whileInView={"visible"}
               //@ts-ignore
-              variants={staggerContainerSlow}
+              variants={staggerContainer}
               className="px-2  space-y-2 py-5"
             >
               {navigation.map((item) => (

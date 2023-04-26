@@ -19,19 +19,19 @@ const CTA = () => (
         variants={slideUp}
         className="text-zinc-200 font-semibold text-lg"
       >
-        TRY FOR FREE
+        START FOR FREE
       </motion.h1>
       <motion.h1
         variants={slideUp}
         className="text-white text-4xl xl:text-5xl font-bold leading-tight"
       >
-        Start crafting stunning mockups in seconds.
+        Start crafting stunning mockups in seconds
       </motion.h1>
       <motion.div
         variants={slideUp}
         className="flex justify-center space-x-3 pt-3"
       >
-        <Link href="/#pricing">
+        <Link href="https://app.shotsandbox.com">
           <button
             type="button"
             className="inline-flex items-center rounded-lg border border-transparent bg-white hover:bg-zinc-100 px-6 py-3 text-lg font-medium text-sky-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 transition-colors duration-300"
@@ -39,12 +39,12 @@ const CTA = () => (
             Get started
           </button>
         </Link>
-        <Link href="/#examples">
+        <Link href="/#demo">
           <button
             type="button"
             className="inline-flex items-center rounded-lg border border-transparent bg-sky-900 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors duration-300"
           >
-            Examples
+            Learn more
           </button>
         </Link>
       </motion.div>
