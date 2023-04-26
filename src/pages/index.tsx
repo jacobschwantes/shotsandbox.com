@@ -652,7 +652,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
                   </span>
                 </div>
                 <a
-                  href="https://app.screenshotify.io"
+                  href="https://app.shotsandbox.com"
                   className="mb-5 relative inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-white group-odd:bg-sky-600  px-4 py-2 font-medium group-odd:text-white text-sky-600 shadow-sm hover:bg-zinc-200 group-odd:hover:bg-sky-700  focus:outline-2 focus:outline outline-offset-2 focus:outline-sky-500 group-even:outline-white transition-colors duration-300"
                 >
                   Get started

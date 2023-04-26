@@ -108,7 +108,7 @@ export default function Header() {
               <motion.div variants={fadeIn} className="w-full flex pt-3 space-x-3 px-2">
                 <Disclosure.Button
                   as="a"
-                  href="https://app.screenshotify.io"
+                  href="https://app.shotsandbox.com"
                   className="w-full inline-flex items-center justify-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                 >
                   Open Editor
