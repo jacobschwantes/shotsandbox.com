@@ -1,6 +1,5 @@
-import { Carousel, Tabs } from "@components/index";
+import { Carousel } from "@components/index";
 import {
-  CheckIcon,
   CubeIcon,
   BoltIcon,
   ArrowDownOnSquareIcon,
@@ -10,8 +9,13 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { slideUp, staggerContainer, draw } from "@utils/variants";
+import { slideUp, staggerContainer, draw, scaleUp } from "@utils/variants";
 import { smoothScroll } from "@utils/scroll";
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
+import matter from "gray-matter";
+import { BlogPost } from "@customTypes/blog";
 const media = [
   { src: "preview_1.png", id: 1 },
   { src: "preview_2.png", id: 2 },
@@ -50,42 +54,73 @@ const features = [
       "Customize your preview using over 35 inputs in 8 different categories. Adjust size, position, 3D orientation, background, shadow, browser frames, gradients, and more.",
   },
 ];
+const steps = [
+  {
+    id: 1,
+    title: "Create a New Project and Open It",
+    description:
+      "From the ShotSandbox dashboard click the 'New Project' button and open your newly created project.",
+    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step1_bp66te.mp4",
+  },
+  {
+    id: 2,
+    title: "Set the Dimensions",
+    description:
+      "Choose from our wide array of preset dimensions or input your own custom measurements to create a showcase tailored to your specific needs.",
+    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step2_opjhov.mp4",
+  },
+  {
+    id: 3,
+    title: "Customize the Design",
+    description:
+      "Transform your showcase by customizing the background, 3D orientation, browser frames, and more.",
+    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step3_oy45ae.mp4",
+  },
+  {
+    id: 4,
+    title: "Save or Export",
+    description:
+      "Once you've crafted your showcase, save the project for future edits or export it in various formats like JPEG, PNG, or even copy it directly to your clipboard for easy sharing.",
+    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step4_xcnvy8.mp4",
+  },
+];
+
 const features2 = [
   {
     id: 1,
     title: "Export Options",
-    description: "Export to png, jpg, webp or copy to clipboard.",
+    description: "Export to png, jpg, or copy to clipboard",
     icon: ArrowDownOnSquareIcon,
   },
   {
     id: 2,
-    title: "Custom Presets",
-    description: "Save, favorite, and share custom templates.",
+    title: "Save Projects",
+    description: "Save, duplicate, and manage your projects",
     icon: CubeIcon,
   },
   {
     id: 3,
     title: "Undo & Redo",
-    description: "Undo or redo recent changes to a preview.",
+    description: "Undo or redo recent changes to your project",
     icon: ArrowPathIcon,
   },
   {
     id: 4,
     title: "Custom Backgrounds",
-    description: "Upload or input a link to a custom background.",
+    description: "Choose from solid colors or make your own custom gradients",
     icon: PhotoIcon,
   },
   {
     id: 5,
     title: "Unlimited Exports",
-    description: "Unlimited preview exports and downloads for all users.",
+    description: "Unlimited image exports and downloads with no watermarks",
     icon: LockOpenIcon,
   },
   {
     id: 6,
-    title: "Dynamic Generation",
+    title: "Anonymous",
     description:
-      "Use the API to dynamically generate server-rendered previews.",
+      "Manage projects, export, and use all editor features without the need for an account",
     icon: BoltIcon,
   },
 ];
@@ -133,8 +168,7 @@ const tiers = [
   },
 ];
 
-export default function Home() {
-  const [selected, setSelected] = useState("yearly billing");
+export default function Home({ posts }: { posts: BlogPost[] }) {
   const [images, setImages] = useState(media);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -155,7 +189,7 @@ export default function Home() {
       }
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
 
   return (
     <div className="flex flex-col bg-white font-inter">
@@ -172,7 +206,7 @@ export default function Home() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="space-y-6 max-w-3xl lg:-mt-36 mt-52 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
+            className="space-y-6 max-w-3xl lg:-mt-36 mt-40 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
           >
             <motion.h1
               variants={slideUp}
@@ -204,7 +238,7 @@ export default function Home() {
                     fill="transparent"
                     strokeWidth="2"
                     stroke="#21aff7"
-                    strokeOpacity={.25}
+                    strokeOpacity={0.25}
                     strokeLinecap="round"
                     d="M1 6L62 1L41 6H112"
                     pathLength="1"
@@ -220,23 +254,24 @@ export default function Home() {
               variants={slideUp}
               className="text-zinc-700 lg:text-2xl text-xl max-w-lg"
             >
-              Quickly turn boring screenshots into eye-catching previews using our
-              powerful editor.
+              Quickly turn bland screenshots into eye-catching previews using
+              our powerful editor.
             </motion.h2>
             <motion.div variants={slideUp} className="flex  space-x-3">
+              <Link href="https://app.shotsandbox.com">
+                <button
+                  type="button"
+                  className="inline-flex items-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                >
+                  Get started
+                </button>
+              </Link>
               <button
-                onClick={() => smoothScroll("#pricing", 2000)}
-                type="button"
-                className="inline-flex items-center rounded-lg border border-transparent bg-sky-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
-              >
-                Get started
-              </button>
-              <button
-                onClick={() => smoothScroll("#examples", 1000)}
+                onClick={() => smoothScroll("#demo", 1000)}
                 type="button"
                 className="inline-flex items-center rounded-lg border border-transparent bg-white px-6 py-3 text-lg font-medium text-sky-600 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2"
               >
-                Examples
+                Learn more
               </button>
             </motion.div>
           </motion.div>
@@ -259,7 +294,7 @@ export default function Home() {
           </motion.div>
         </div>
       </motion.div>
-
+      {/* 
       <motion.div
         //@ts-ignore
         variants={staggerContainer}
@@ -302,10 +337,48 @@ export default function Home() {
             </motion.li>
           ))}
         </motion.ul>
+      </motion.div> */}
+
+      <motion.div
+        //@ts-ignore
+        variants={staggerContainer}
+        className="bg-white space-y-16 py-24"
+      >
+        <motion.div
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+          className="max-w-2xl mx-auto text-center space-y-3"
+        >
+          <h1 className="text-sky-600 font-semibold text-lg">
+            COMPLETE TOOLKIT
+          </h1>
+          <h1 className="text-black lg:text-5xl text-4xl font-bold">
+            All the tools you&apos;ll need to showcase your project
+          </h1>
+        </motion.div>
+        <motion.div
+          className="max-w-6xl mx-auto p-5"
+          initial={"hidden"}
+          viewport={{ once: true }}
+          whileInView={"visible"}
+          variants={slideUp}
+        >
+          <video
+            className=" rounded-2xl shadow-2xl shadow-zinc-300 max-w-full w-full"
+            autoPlay
+            muted
+            loop
+          >
+            <source src="https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/demo1_h1ykzc.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </motion.div>
       </motion.div>
       <div className="bg-sky-50">
         <motion.div
-          id="examples"
+          id="demo"
           //@ts-ignore
           variants={staggerContainer}
           className=" flex lg:space-x-24 lg:flex-row flex-col  justify-between items-center lg:items-start  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 lg:space-y-0 px-5 lg:px-0"
@@ -316,27 +389,27 @@ export default function Home() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className=" space-y-6  lg:sticky  top-32 h-min  max-w-md text-center lg:text-left "
+            className=" space-y-6 lg:sticky top-32 max-w-2xl w-full text-center lg:text-left "
           >
             <motion.h1
               variants={slideUp}
               className="text-sky-600 font-semibold text-lg"
             >
-              EXAMPLES
+              DEMO
             </motion.h1>
             <motion.h1
               variants={slideUp}
               className="text-black lg:text-5xl text-4xl font-bold"
             >
-              A powerful and easy to use editor.
+              A powerful and easy to use editor
             </motion.h1>
             <motion.h2
               variants={slideUp}
-              className="text-zinc-700 text-xl max-w-lg"
+              className="text-zinc-700 text-xl max-w-xl"
             >
-              Create beautiful previews of your projects within seconds directly
-              in the editor. Easily customize images, content, and style to make
-              it your own.
+              Craft eye-catching previews of your projects within seconds
+              directly in the editor. Easily customize images, content, and
+              style to make it your own.
             </motion.h2>
           </motion.div>
 
@@ -346,26 +419,35 @@ export default function Home() {
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="grid space-y-5 min-h-min relative"
+            className="grid space-y-5 min-h-min relative max-w-2xl"
           >
-            {[1, 2, 3].map((item) => (
+            {steps.map((step) => (
               <motion.li
-                key={item}
+                key={step.id}
                 variants={slideUp}
                 style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
-                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square  space-y-4 bg-white"
+                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square bg-white"
               >
-                <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
-                  <CubeIcon className="h-8 text-sky-600" />
-                </div>
+                <div className="space-y-4 flex flex-col items-start">
+                  <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
+                    <CubeIcon className="h-8 text-sky-600" />
+                  </div>
 
-                <h1 className="font-medium text-black text-2xl">
-                  25+ Prebuilt Pages
-                </h1>
-                <p className="text-zinc-500  text-lg ">
-                  Choose from 20+ pages from various categories. Customize your
-                  page, hit publish and instantly see your site live.
-                </p>
+                  <h1 className="font-medium text-black text-2xl">
+                    {step.title}
+                  </h1>
+
+                  <p className="text-zinc-500  text-lg ">{step.description}</p>
+                </div>
+                <video
+                  className=" rounded-2xl max-w-full w-full mt-auto"
+                  autoPlay
+                  muted
+                  loop
+                >
+                  <source src={step.media} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </motion.li>
             ))}
           </motion.ul>
@@ -387,7 +469,7 @@ export default function Home() {
         >
           <h1 className="text-sky-600 font-semibold text-lg">FEATURES</h1>
           <h1 className="text-black text-4xl lg:text-5xl font-bold">
-            Essential features for your next website.
+            Essential features for your project showcase
           </h1>
         </motion.div>
 
@@ -420,8 +502,8 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div>
-      {/* blog}
-      {/* <motion.div
+
+      <motion.div
         id="resources"
         //@ts-ignore
         variants={staggerContainer}
@@ -433,7 +515,7 @@ export default function Home() {
           initial={"hidden"}
           viewport={{ once: true }}
           whileInView={"visible"}
-          className="max-w-xl mx-auto text-center space-y-6"
+          className="max-w-xl mx-auto text-center space-y-6 px-5"
         >
           <motion.h1
             variants={slideUp}
@@ -445,11 +527,11 @@ export default function Home() {
             variants={slideUp}
             className="text-black text-5xl lg:text-6xl font-bold"
           >
-            Insights and news from the team.
+            Insights and news from the team
           </motion.h2>
           <motion.p variants={slideUp} className="text-zinc-600 text-xl ">
-            Discover articles and guides from Ultra team and improve
-            functionality of your websites.
+            Discover articles and guides from the ShotSandbox team to help you
+            show off your work.
           </motion.p>
           <Link href="/blog">
             <motion.a
@@ -469,23 +551,26 @@ export default function Home() {
           variants={staggerContainer}
           className="grid lg:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 lg:px-0"
         >
-          {[1, 2].map((item) => (
-            <motion.li
-              key={item}
+          {posts.map((post) => (
+            <motion.a
+              href={`/blog/${post.id}`}
+              key={post.id}
               style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
               variants={slideUp}
-              className=" rounded-3xl flex flex-col items-start justify-end p-10 border border-zinc-100  space-y-4 bg-gradient-to-br from-white to-white via-sky-300 h-96"
+              className=" rounded-3xl flex flex-col items-start justify-end  border border-zinc-200  space-y-4 bg-gradient-to-br from-white to-white via-sky-300 h-96"
             >
-              <h1 className="text-zinc-100 text-lg uppercase font-bold tracking-wide">
-                Inspiration
-              </h1>
-              <p className="text-white text-2xl font-bold ">
-                10 ways to improve your launch campaign
-              </p>
-            </motion.li>
+              <div className="mt-auto bg-zinc-50 rounded-b-3xl p-8">
+                <h1 className="text-zinc-500  uppercase font-bold tracking-wide">
+                  Inspiration
+                </h1>
+                <p className="text-zinc-700 text-2xl font-semibold ">
+                  {post.frontMatter.title}
+                </p>
+              </div>
+            </motion.a>
           ))}
         </motion.ul>
-      </motion.div> */}
+      </motion.div>
       {/* <motion.div
         id="pricing"
         //@ts-ignore
@@ -592,3 +677,26 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join("src/content/blog/posts"));
+
+  const posts = files.map((filename) => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join("src/content/blog/posts", filename),
+      "utf-8"
+    );
+    const { data: frontMatter } = matter(markdownWithMeta);
+
+    return {
+      frontMatter,
+      id: filename.split(".")[0],
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
