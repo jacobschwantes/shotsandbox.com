@@ -359,14 +359,14 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
           </h1>
         </motion.div>
         <motion.div
-          className="max-w-6xl mx-auto p-5"
+          className="max-w-6xl mx-auto px-5"
           initial={"hidden"}
           viewport={{ once: true }}
           whileInView={"visible"}
           variants={slideUp}
         >
           <video
-            className=" rounded-2xl shadow-2xl shadow-zinc-300 max-w-full w-full"
+            className=" sm:rounded-2xl rounded-lg shadow-2xl shadow-zinc-300 max-w-full w-full"
             autoPlay
             muted
             loop
@@ -382,7 +382,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
           id="demo"
           //@ts-ignore
           variants={staggerContainer}
-          className=" flex lg:space-x-24 lg:flex-row flex-col  justify-between items-center lg:items-start  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 lg:space-y-0 px-5 lg:px-0"
+          className=" flex lg:space-x-24 lg:flex-row flex-col  justify-between items-center lg:items-start  max-w-6xl  relative h-min w-full mx-auto py-24 space-y-24 lg:space-y-0 px-3 lg:px-0"
         >
           <motion.div
             initial={"hidden"}
@@ -427,9 +427,9 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
                 key={step.id}
                 variants={slideUp}
                 style={{ boxShadow: "rgb(0 0 0 / 25%) 0px 10px 30px -20px" }}
-                className="  rounded-2xl flex flex-col items-start p-10 border border-zinc-200 aspect-square bg-white"
+                className="  rounded-2xl flex flex-col items-start md:p-10 p-7 border border-zinc-200 aspect-square bg-white"
               >
-                <div className="space-y-4 flex flex-col items-start">
+                <div className="space-y-4 flex flex-col items-start pb-4">
                   <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
                     <CubeIcon className="h-8 text-sky-600" />
                   </div>
@@ -441,7 +441,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
                   <p className="text-zinc-500  text-lg ">{step.description}</p>
                 </div>
                 <video
-                  className=" rounded-2xl max-w-full w-full mt-auto"
+                  className=" sm:rounded-2xl rounded-lg max-w-full w-full mt-auto"
                   autoPlay
                   muted
                   loop
