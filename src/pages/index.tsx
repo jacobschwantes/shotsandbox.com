@@ -370,6 +370,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             autoPlay
             muted
             loop
+            playsInline
           >
             <source src="https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/demo1_h1ykzc.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -444,6 +445,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
                   autoPlay
                   muted
                   loop
+                  playsInline
                 >
                   <source src={step.media} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -465,7 +467,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
           viewport={{ once: true }}
           whileInView={"visible"}
           variants={slideUp}
-          className="max-w-2xl mx-auto text-center space-y-3"
+          className="max-w-2xl mx-auto text-center space-y-3 px-5"
         >
           <h1 className="text-sky-600 font-semibold text-lg">FEATURES</h1>
           <h1 className="text-black text-4xl lg:text-5xl font-bold">
@@ -492,7 +494,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
                 <feature.icon className="h-10 text-sky-600" />
               </div>
 
-              <h1 className="font-medium text-black text-2xl">
+              <h1 className="font-medium text-black text-2xl text-center">
                 {feature.title}
               </h1>
               <p className="text-zinc-500  text-lg text-center ">
