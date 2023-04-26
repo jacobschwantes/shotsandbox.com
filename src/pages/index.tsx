@@ -6,6 +6,9 @@ import {
   ArrowPathIcon,
   PhotoIcon,
   LockOpenIcon,
+  DocumentPlusIcon,
+  WrenchScrewdriverIcon,
+  PaintBrushIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -60,28 +63,37 @@ const steps = [
     title: "Create a New Project and Open It",
     description:
       "From the ShotSandbox dashboard click the 'New Project' button and open your newly created project.",
-    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step1_bp66te.mp4",
+    icon: DocumentPlusIcon,
+    media:
+      "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step1_bp66te.mp4",
   },
   {
     id: 2,
     title: "Set the Dimensions",
     description:
       "Choose from our wide array of preset dimensions or input your own custom measurements to create a showcase tailored to your specific needs.",
-    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step2_opjhov.mp4",
+    icon: WrenchScrewdriverIcon,
+
+    media:
+      "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step2_opjhov.mp4",
   },
   {
     id: 3,
     title: "Customize the Design",
     description:
       "Transform your showcase by customizing the background, 3D orientation, browser frames, and more.",
-    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step3_oy45ae.mp4",
+    icon: PaintBrushIcon,
+    media:
+      "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step3_oy45ae.mp4",
   },
   {
     id: 4,
     title: "Save or Export",
     description:
       "Once you've crafted your showcase, save the project for future edits or export it in various formats like JPEG, PNG, or even copy it directly to your clipboard for easy sharing.",
-    media: "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step4_xcnvy8.mp4",
+    icon: ArrowDownOnSquareIcon,
+    media:
+      "https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/step4_xcnvy8.mp4",
   },
 ];
 
@@ -372,7 +384,10 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             loop
             playsInline
           >
-            <source src="https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/demo1_h1ykzc.mp4" type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/dk0fptxga/video/upload/v1682471000/demo1_h1ykzc.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
         </motion.div>
@@ -431,7 +446,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
               >
                 <div className="space-y-4 flex flex-col items-start pb-4">
                   <div className="p-2 bg-sky-500 bg-opacity-10 rounded-lg">
-                    <CubeIcon className="h-8 text-sky-600" />
+                    <step.icon className="h-8 text-sky-600" />
                   </div>
 
                   <h1 className="font-medium text-black text-2xl">
