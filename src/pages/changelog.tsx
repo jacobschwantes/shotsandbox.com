@@ -1,17 +1,21 @@
-import Image from "next/image";
+import Head from "next/head";
 
 const logs = [
-  // {
-  //   title: "Template Release",
-  //   date: 1672624509000,
-  //   description:
-  //     "Initial Boost multipurpose Framer template release. Combine sections from a range of categories to easily assemble pages that meet the needs of your growing business.",
-  // },
+  {
+    id: 1,
+    title: "Initial Release",
+    date: 1682470548000,
+    description:
+      "The initial release of ShotSandbox. This includes the ability to create and manage your own projects, and export to a variety of formats.",
+  },
 ];
 
 export default function Example() {
   return (
     <div className="flex-1 flex flex-col h-full min-h-screen">
+      <Head>
+        <title>Changelog | ShotSandbox</title>
+      </Head>
       <div className="bg-sky-50 mt-16">
         <div className=" py-32 flex flex-col justify-center items-center text-center space-y-5">
           <h1 className="text-black text-4xl lg:text-6xl font-bold">
@@ -22,9 +26,9 @@ export default function Example() {
           </h2>
         </div>
       </div>
-      <ul className="mx-auto max-w-5xl py-24">
+      <ul className="mx-auto max-w-5xl flex flex-col space-y-10 py-24">
         {logs.map((log) => (
-          <li className="flex space-x-40">
+          <li key={log.id} className="flex space-x-40">
             <span className="font-bold text-2xl text-zinc-400 whitespace-pre">
               {new Date(log.date).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -35,10 +39,6 @@ export default function Example() {
             <div className="space-y-5">
               <h1 className="font-semibold text-2xl">{log.title}</h1>
               <h2 className="text-zinc-700 text-lg">{log.description}</h2>
-              <div className="relative aspect-video">
-
-             
-              <Image className="absolute w-full h-full rounded-2xl" layout="fill" src="/dashboard_preview.png" /> </div>
             </div>
           </li>
         ))}
