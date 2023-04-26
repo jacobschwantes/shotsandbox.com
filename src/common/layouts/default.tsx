@@ -9,7 +9,7 @@ const Layout: NextPage<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col font-inter min-h-screen bg-white">
       <Head>
-        <title>screenshotify</title>
+        <title>ShotSandbox</title>
       </Head>
       <Header />
       {children}

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@utils/variants";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { Ticker } from "@components/index";
-import { smoothScroll } from "@utils/scroll";
 import Link from "next/link";
 const features = ['Position', 'Gradients', '3D Orientation', 'Layouts', 'Headers', 'Backgrounds', 'Frames', 'Borders', 'Shadows']
 const CTA = () => (

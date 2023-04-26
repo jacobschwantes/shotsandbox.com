@@ -15,9 +15,9 @@ export default function Example() {
           </p>
           <div className="">
             <Link href="/">
-              <a className="inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-sky-600  px-4 py-3 font-medium text-lg text-white shadow-sm hover:bg-sky-700 focus:outline-2 focus:outline outline-offset-2 focus:outline-sky-500 transition-colors duration-300">
+              <button className="cursor-pointer inline-flex w-full justify-center items-center rounded-lg border border-transparent bg-sky-600  px-4 py-3 font-medium text-lg text-white shadow-sm hover:bg-sky-700 focus:outline-2 focus:outline outline-offset-2 focus:outline-sky-500 transition-colors duration-300">
                 Go back home
-              </a>
+              </button>
             </Link>
           </div>
         </div>
