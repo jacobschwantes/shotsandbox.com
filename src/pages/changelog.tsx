@@ -17,7 +17,7 @@ export default function Example() {
         <title>Changelog | ShotSandbox</title>
       </Head>
       <div className="bg-sky-50 mt-16">
-        <div className=" py-32 flex flex-col justify-center items-center text-center space-y-5">
+        <div className=" md:py-32 py-10 flex flex-col justify-center items-center text-center space-y-5 px-4">
           <h1 className="text-black text-4xl lg:text-6xl font-bold">
             Changelog
           </h1>
@@ -26,17 +26,17 @@ export default function Example() {
           </h2>
         </div>
       </div>
-      <ul className="mx-auto max-w-5xl flex flex-col space-y-10 py-24">
+      <ul className="mx-auto max-w-5xl flex flex-col space-y-10 py-24 px-4">
         {logs.map((log) => (
-          <li key={log.id} className="flex space-x-40">
-            <span className="font-bold text-2xl text-zinc-400 whitespace-pre">
+          <li key={log.id} className="md:flex md:space-x-40 space-y-4 md:space-y-0">
+            <span className="font-bold text-lg md:text-2xl text-zinc-400 whitespace-pre">
               {new Date(log.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
               })}
             </span>
-            <div className="space-y-5">
+            <div className="space-y-5 ">
               <h1 className="font-semibold text-2xl">{log.title}</h1>
               <h2 className="text-zinc-700 text-lg">{log.description}</h2>
             </div>

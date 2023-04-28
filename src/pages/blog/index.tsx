@@ -24,7 +24,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
           whileInView={"visible"}
           //@ts-ignore
           variants={staggerContainer}
-          className="grid lg:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 lg:px-0"
+          className="grid lg:grid-cols-2  max-w-6xl mx-auto gap-5 px-5 lg:px-0 py-6"
         >
           {posts.map((post, index) => (
             <motion.a
