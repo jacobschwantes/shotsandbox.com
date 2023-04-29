@@ -211,14 +211,14 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
         }}
         className="h-screen  overflow-hidden relative  "
       >
-        <div className="lg:top-1/2 absolute lg:-translate-y-1/2 lg:left-1/3 lg:-translate-x-1/3 z-30 h-1/2 w-full lg:w-auto lg:h-auto flex justify-center items-center lg:block  ">
+        <div className="lg:top-1/2 absolute lg:-translate-y-1/2 2xl:left-1/3 lg:left-1/4 lg:-translate-x-1/3 z-30 h-1/2 w-full lg:w-auto lg:h-auto flex justify-center items-center lg:block  ">
           <motion.div
             initial={"hidden"}
             viewport={{ once: true }}
             whileInView={"visible"}
             //@ts-ignore
             variants={staggerContainer}
-            className="space-y-6 max-w-3xl lg:-mt-36 mt-40 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
+            className="space-y-6 max-w-2xl lg:-mt-24 mt-40 px-5 lg:px-0 flex flex-col text-center items-center lg:text-left lg:items-start"
           >
             <motion.h1
               variants={slideUp}
@@ -228,7 +228,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             </motion.h1>
             <motion.h1
               variants={slideUp}
-              className="text-black lg:text-7xl text-5xl font-bold "
+              className="text-black 2xl:text-7xl text-6xl font-bold "
             >
               Craft{" "}
               <motion.span
@@ -264,7 +264,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             </motion.h1>
             <motion.h2
               variants={slideUp}
-              className="text-zinc-700 lg:text-2xl text-xl max-w-lg"
+              className="text-zinc-700 2xl:text-2xl text-xl max-w-lg"
             >
               Quickly turn bland screenshots into eye-catching previews using
               our powerful editor.
