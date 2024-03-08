@@ -11,7 +11,9 @@ const withMDX = require('@next/mdx')({
     rehypePlugins: [],
   },
 })
-module.exports = withPlausibleProxy(withMDX({
+module.exports = withPlausibleProxy({
+  customDomain: 'https://analytics.endeavorwebsolutions.com'
+})(withMDX({
   // Append the default value with md extensions
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 }))
