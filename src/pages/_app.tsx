@@ -6,12 +6,17 @@ import PlausibleProvider from "next-plausible";
 import Script from "next/script";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PlausibleProvider domain="shotsandbox.com">
+    <>
+      <Script
+        defer
+        src="https://analytics.endeavorwebsolutions.com/script.js"
+        data-website-id="fbd17f5b-fb73-453e-ab57-82abcf11b137"
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>
       {/* <Analytics /> */}
-    </PlausibleProvider>
+    </>
   );
 }
 
