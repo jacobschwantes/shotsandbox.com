@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { withPlausibleProxy } = require('next-plausible')
 const withMDX = require('@next/mdx')({
    reactStrictMode: true,
   extension: /\.mdx?$/,
@@ -10,7 +11,7 @@ const withMDX = require('@next/mdx')({
     rehypePlugins: [],
   },
 })
-module.exports = withMDX({
+module.exports = withPlausibleProxy(withMDX({
   // Append the default value with md extensions
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+}))
